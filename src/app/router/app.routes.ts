@@ -7,6 +7,11 @@ import { RegisterComponent } from '../pages/register/register.component';
 
 export const routes: Routes = [
   {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full',
+  },
+  {
     path: 'dashboard',
     canActivate: [AuthGuard],
     title: 'Dashboard',

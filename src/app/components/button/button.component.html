@@ -1,0 +1,22 @@
+<button
+  [disabled]="disabled || isLoading"
+  (click)="handleClick()"
+  [ngClass]="variation"
+  class="inline-flex items-center justify-center py-2 px-4 border border-transparent rounded-md font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-offset-2"
+  [ngClass]="{
+    'bg-blue-600 hover:bg-blue-700 text-white focus:ring-blue-500':
+      variation === 'primary',
+    'bg-gray-200 hover:bg-gray-300 text-gray-800 focus:ring-gray-500':
+      variation === 'secondary',
+    'bg-red-600 hover:bg-red-700 text-white focus:ring-red-500':
+      variation === 'danger',
+    'bg-green-600 hover:bg-green-700 text-white focus:ring-green-500':
+      variation === 'success',
+    'opacity-50 cursor-not-allowed': disabled || isLoading
+  }"
+>
+  <mat-spinner *ngIf="isLoading" diameter="20" class="mr-2"></mat-spinner>
+  <span *ngIf="!isLoading">
+    <ng-content></ng-content>
+  </span>
+</button>
