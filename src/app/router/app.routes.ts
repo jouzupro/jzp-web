@@ -4,6 +4,7 @@ import { DashboardPageComponent } from '../pages/dashboard-page/dashboard-page.c
 import { PageNotFoundComponent } from '../pages/page-not-found/page-not-found.component';
 import { LoginComponent } from '../pages/login/login.component';
 import { RegisterComponent } from '../pages/register/register.component';
+import { LessonPreviewComponent } from '../pages/lesson-preview/lesson-preview.component';
 
 export const routes: Routes = [
   {
@@ -16,6 +17,12 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
     title: 'Dashboard',
     component: DashboardPageComponent,
+  },
+  {
+    path: 'play',
+    canActivate: [AuthGuard],
+    title: 'Play',
+    component: LessonPreviewComponent,
   },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
