@@ -1,11 +1,16 @@
 import { Component } from '@angular/core';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  imports: [SidenavComponent, RouterModule],
+  template: `<app-sidenav>
+    <router-outlet></router-outlet>
+</app-sidenav>`,
 })
 export class AppComponent {
-  test = 'jpz-web';
+  onSidebarToggled() {
+    console.log('Sidebar toggled');
+  }
 }

@@ -1,0 +1,103 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav
+    #sidenav
+    [mode]="isMobile ? 'over' : 'side'"
+    [opened]="!isMobile"
+    class="z-50"
+  >
+    <mat-toolbar class="head-container">
+      <span>{{APP_TITLE}}</span>
+      <mat-icon (click)="toggleSidenav()" class="menu-icon" *ngIf="isMobile">
+        menu
+      </mat-icon>
+    </mat-toolbar>
+    <mat-nav-list>
+      <ng-container *ngFor="let route of routes; let i = index">
+        <ng-container
+          *ngIf="route.children && route.children.length; else singleLink"
+        >
+          <div
+            class="drawer"
+            [class.open]="route.open"
+            [class.animating]="route.animating"
+          >
+            <div class="drawer-header" (click)="toggleDrawer(route)">
+              <span class="title-sidenav">{{ route.title || route.path }}</span>
+              <mat-icon class="title-sidenav">
+                {{ route.open ? "expand_less" : "expand_more" }}
+              </mat-icon>
+            </div>
+            <div class="drawer-content">
+              <ng-container *ngFor="let child of route.children; let j = index">
+                <a mat-list-item [routerLink]="[route.path, child.path]">
+                  <span class="title-sidenav">
+                    {{ child.title || child.path }}
+                  </span>
+                </a>
+                <mat-divider
+                  *ngIf="j < route.children.length - 1"
+                ></mat-divider>
+              </ng-container>
+            </div>
+          </div>
+        </ng-container>
+        <ng-template #singleLink>
+          <a mat-list-item [routerLink]="route.path">
+            <span class="title-sidenav">
+              {{ route.title || route.path }}
+            </span>
+          </a>
+        </ng-template>
+        <mat-divider *ngIf="i < routes.length - 1"></mat-divider>
+      </ng-container>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="content-background">
+    <mat-toolbar class="content-toolbar justify-between">
+      <div class="flex items-center">
+        <mat-icon *ngIf="showBack" (click)="navigateBack()" class="back-icon mr-3 cursor-pointer">
+          arrow_back
+        </mat-icon>
+        <mat-icon
+          (click)="toggleSidenav()"
+          class="menu-icon"
+          *ngIf="isMobile && !sidenav.opened && !showBack"
+        >
+          menu
+        </mat-icon>
+        <span>{{ currentTitle }}</span>
+      </div>
+      <div
+        class="w-12 h-12 bg-white flex items-center rounded-4xl cursor-pointer"
+      >
+        <mat-menu #profileMenu="matMenu">
+          <button mat-menu-item  >
+            My Profile
+          </button>
+          <button mat-menu-item  >
+            Logout
+          </button>
+        </mat-menu>
+  
+        <ng-template #defaultIcon>
+          <mat-icon
+            aria-hidden="false"
+            aria-label="profile"
+            fontIcon="account_circle"
+            [matMenuTriggerFor]="profileMenu"
+            class="ml-3"
+            style="color: grey; transform: scale(2)"
+          ></mat-icon>
+        </ng-template>
+      </div>
+    </mat-toolbar>
+    <div class="content-wrapper">
+      <div
+        *ngIf="isMobile && sidenav.opened"
+        class="fixed inset-0 bg-black opacity-50 z-40"
+        (click)="toggleSidenav()"
+      ></div>
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
