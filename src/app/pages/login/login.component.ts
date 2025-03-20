@@ -1,10 +1,10 @@
   import { Component } from '@angular/core';
-import { CustomButtonComponent } from "../../components/button/button.component";
+import { ButtonComponent } from "../../components/button/button.component";
 import { Router } from '@angular/router';
 
   @Component({
     selector: 'app-login',
-    imports: [CustomButtonComponent],
+    imports: [ButtonComponent],
     templateUrl: './login.component.html',
     styleUrl: './login.component.css',
   })

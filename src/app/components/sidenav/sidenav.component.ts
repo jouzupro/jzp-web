@@ -40,7 +40,7 @@ export class SidenavComponent {
   // variables
   @Output() toggled = new EventEmitter<void>();
   @ViewChild(MatSidenav) sidenav!: MatSidenav;
-  isMobile = false; // Initially set to false
+  isMobile = true; // Initially set to false
   APP_TITLE = APP_TITLE;
   routes: any[] = [];
   currentTitle: string = '';

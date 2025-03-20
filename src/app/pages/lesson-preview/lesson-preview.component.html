@@ -22,11 +22,17 @@
     >
       <p>What is the {{ currentQuestion.type }} of this kanji?</p>
     </div>
-    <div *ngIf="answered && isCorrect" class="text-xl mb-5 font-bold p-4 bg-green-200 rounded-md border-green-600 border">
-      <p style="color: gray;">CORRECT!</p>
+    <div
+      *ngIf="answered && isCorrect"
+      class="text-xl mb-5 font-bold p-4 bg-green-200 rounded-md border-green-600 border"
+    >
+      <p style="color: gray">CORRECT!</p>
     </div>
-    <div *ngIf="answered && !isCorrect" class="text-xl mb-5 font-bold p-4 bg-red-200 rounded-md border-red-600 border">
-      <p style="color: white;">WRONG!</p>
+    <div
+      *ngIf="answered && !isCorrect"
+      class="text-xl mb-5 font-bold p-4 bg-red-200 rounded-md border-red-600 border"
+    >
+      <p style="color: white">WRONG!</p>
     </div>
     <div
       class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 w-full md:w-1/2 mb-5 justify-center"
@@ -37,8 +43,23 @@
         {{ currentQuestion.kanji }}
       </div>
       <div class="w-full" *ngIf="answered">
+        <div *ngIf="isAnswerTypo === 'typo'" class="text-black mb-3">
+          Your answer seems a little bit off
+        </div>
         <app-expansion-panel title="Readings">
-          <div class="text-black">this is how your read</div>
+          <div class="flex items-center space-x-4">
+            <app-button variation="secondary" (click)="onListen()">
+              <mat-icon
+                aria-hidden="false"
+                aria-label="Example home icon"
+                fontIcon="spatial_audio_off"
+                style="color: black"
+              ></mat-icon>
+            </app-button>
+            <p class="text-xl font-bold">{{ currentQuestion.answer }}</p>
+          </div>
+
+          <div class="text-black mt-3">this is how your read</div>
         </app-expansion-panel>
         <app-expansion-panel title="Meaning">
           <div class="text-black">this is the meaning</div>

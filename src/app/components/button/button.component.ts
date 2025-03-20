@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.css'],
 })
-export class CustomButtonComponent {
+export class ButtonComponent {
   @Input() onClick: (e?: any) => void = (e?: any) => {};
   @Input() isLoading: boolean = false;
   @Input() disabled: boolean = false;
