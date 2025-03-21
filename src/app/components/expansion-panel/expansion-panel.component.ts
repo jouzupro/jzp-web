@@ -19,7 +19,7 @@ import {
         class="w-full p-4 flex justify-between items-center"
         (click)="togglePanel()"
       >
-        <span class="text-black">{{ title }}</span>
+        <span class="text-black text-lg font-semibold">{{ title }}</span>
         <mat-icon
           class="transition-transform duration-300 text-black"
           [class.transform]="!isOpen"

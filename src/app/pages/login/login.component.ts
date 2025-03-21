@@ -13,6 +13,6 @@ import { Router } from '@angular/router';
     }
 
     onPlay() {
-      this.router.navigate(['play']);
+      this.router.navigate(['dashboard']);
     }
   }

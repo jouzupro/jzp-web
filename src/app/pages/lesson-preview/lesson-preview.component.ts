@@ -86,7 +86,7 @@ export class LessonPreviewComponent implements OnInit {
 
   onInputChange() {
     if (this.lessons[this.currentQuestionIndex].type != 'meaning') {
-      this.romajiInput = new RomajiToHiraganaPipe().transform(this.romajiInput);
+      this.romajiInput = new RomajiToHiraganaPipe().transform(this.romajiInput.toLowerCase());
     }
   }
 
