@@ -7,6 +7,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../../components/button/button.component';
 import { StatusBoxComponent } from '../../components/status-box/status-box.component';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -17,7 +18,7 @@ import { StatusBoxComponent } from '../../components/status-box/status-box.compo
     KanjiBoxComponent,
     CommonModule,
     ButtonComponent,
-    StatusBoxComponent
+    StatusBoxComponent,
   ],
   templateUrl: './dashboard-page.component.html',
   styleUrl: './dashboard-page.component.css',
@@ -76,7 +77,10 @@ export class DashboardPageComponent implements OnInit {
     },
   ];
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.breakpointObserver
@@ -84,5 +88,10 @@ export class DashboardPageComponent implements OnInit {
       .subscribe((result) => {
         this.isMobile = result.matches;
       });
+  }
+
+  navigateToPlay() {
+    console.log('test')
+    this.router.navigate(['play']);
   }
 }

@@ -27,6 +27,9 @@ body {
     --mat-button-filled-container-color: orange;
     --mat-button-filled-label-text-color: red;
 
+    /* menu */
+    --mat-menu-item-label-text-color: black;
+    --mat-menu-container-color: white;
 }
 
 /* Target the specific FAB classes with the accent color */

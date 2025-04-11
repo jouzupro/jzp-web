@@ -1,4 +1,4 @@
-import { Component, Input, numberAttribute } from '@angular/core';
+import { Component, Input, numberAttribute, OnInit } from '@angular/core';
 import { CustomTypographyComponent } from '../custom-typography/custom-typography.component';
 import { DividerComponent } from '../divider/divider.component';
 
@@ -36,47 +36,74 @@ import { DividerComponent } from '../divider/divider.component';
     </div>
   `,
 })
-export class StatusBoxComponent {
+export class StatusBoxComponent implements OnInit {
   @Input({ alias: 'level', transform: numberAttribute }) level: number = 0;
   @Input({ alias: 'total', transform: numberAttribute }) totalItem: string =
     '0';
 
   baseClass = '';
   textClass = '';
+  ngOnInit(): void {
+    this.baseClass = this.getStatusClass(this.level);
+  }
+
   get statusName(): string {
     let text = '';
     switch (this.level) {
       case 1:
         text = 'Dasar';
-        this.baseClass = 'bg-sky-500';
         break;
       case 2:
         text = 'Pemula';
-        this.baseClass = 'bg-green-500';
         break;
       case 3:
         text = 'Pegiat';
-        this.baseClass = 'bg-yellow-500';
         break;
       case 4:
         text = 'Pembelajar';
-        this.baseClass = 'bg-orange-500';
         break;
       case 5:
         text = 'Mahir';
-        this.baseClass = 'bg-rose-500';
         break;
       case 6:
         text = 'Ahli';
-        this.baseClass = 'bg-purple-500';
         break;
       case 7:
         text = 'Lanjutan';
-        this.baseClass = 'bg-gray-500';
         break;
       default:
         break;
     }
     return text;
+  }
+
+  getStatusClass(level: number): string {
+    let className = '';
+    switch (level) {
+      case 1:
+        className = 'bg-sky-500';
+        break;
+      case 2:
+        className = 'bg-green-500';
+        break;
+      case 3:
+        className = 'bg-yellow-500';
+        break;
+      case 4:
+        className = 'bg-orange-500';
+        break;
+      case 5:
+        className = 'bg-rose-500';
+        break;
+      case 6:
+        className = 'bg-purple-500';
+        break;
+      case 7:
+        className = 'bg-gray-500';
+        break;
+      default:
+        break;
+    }
+    return className;
   }
 }

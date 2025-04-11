@@ -6,6 +6,8 @@ import { ExpansionPanelComponent } from '../../components/expansion-panel/expans
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../../components/button/button.component';
 import { CheckIfTypoPipe } from '../../pipes/check-if-typo/check-if-typo.pipe';
+import { CustomTypographyComponent } from '../../components/custom-typography/custom-typography.component';
+import { Router } from '@angular/router';
 
 interface IQuestions {
   kanji: string;
@@ -35,6 +37,7 @@ export interface SpeechSynthesis {
     ExpansionPanelComponent,
     CommonModule,
     ButtonComponent,
+    CustomTypographyComponent,
   ],
   templateUrl: './lesson-preview.component.html',
   styleUrl: './lesson-preview.component.css',
@@ -58,24 +61,26 @@ export class LessonPreviewComponent implements OnInit {
   voices: SpeechSynthesisVoice[] = [];
   voicesLoaded: boolean = false;
 
+  constructor(private router: Router) {}
+
   ngOnInit() {
     this.updateProgress();
     if ('speechSynthesis' in window) {
-      console.log('speechSynthesis in window');
-
       this.speechSynthesis = window.speechSynthesis;
 
       this.speechSynthesis.onvoiceschanged = () => {
         this.voices = this.speechSynthesis.getVoices();
         this.voicesLoaded = true;
-        console.log('Voices loaded:', this.voices);
+        // console.log('Voices loaded:', this.voices);
       };
 
       this.voices = this.speechSynthesis.getVoices();
       this.voicesLoaded = this.voices.length > 0;
 
       if (!this.voicesLoaded) {
-        console.log('Voices not immediately available, waiting for voiceschanged event.');
+        console.warn(
+          'Voices not immediately available, waiting for voiceschanged event.'
+        );
       }
     }
   }
@@ -86,7 +91,9 @@ export class LessonPreviewComponent implements OnInit {
 
   onInputChange() {
     if (this.lessons[this.currentQuestionIndex].type != 'meaning') {
-      this.romajiInput = new RomajiToHiraganaPipe().transform(this.romajiInput.toLowerCase());
+      this.romajiInput = new RomajiToHiraganaPipe().transform(
+        this.romajiInput.toLowerCase()
+      );
     }
   }
 
@@ -107,16 +114,14 @@ export class LessonPreviewComponent implements OnInit {
   }
 
   onListen() {
-    console.log('test', this.speechSynthesis);
     if (this.voicesLoaded) {
       const message = this.lessons[this.currentQuestionIndex].kanji;
       let utterance = new SpeechSynthesisUtterance(message);
       const voice = this.voices.find((voice) => voice.lang === 'ja-JP');
       utterance.voice = voice ? voice : null;
       utterance.pitch = 1.5;
-      utterance.rate = 0.8;
+      utterance.rate = 0.5;
       utterance.volume = 1;
-      console.log('speak started');
       this.speechSynthesis.speak(utterance);
     } else {
       console.error('speech synth not supported or voices not loaded yet');
@@ -138,5 +143,9 @@ export class LessonPreviewComponent implements OnInit {
   updateProgress() {
     this.progressPercentage =
       (this.currentQuestionIndex / (this.lessons.length - 1)) * 100;
+  }
+
+  closeSession() {
+    this.router.navigate(['dashboard']);
   }
 }

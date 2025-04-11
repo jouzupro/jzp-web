@@ -1,7 +1,7 @@
 <div class="bg-white p-6 rounded-lg shadow-md flex justify-center items-center">
   <div class="flex flex-col items-center w-full">
     <div class="flex items-center w-full mb-5">
-      <mat-icon
+      <mat-icon (click)="closeSession()"
         aria-hidden="false"
         aria-label="Example home icon"
         fontIcon="close"
@@ -24,15 +24,15 @@
     </div>
     <div
       *ngIf="answered && isCorrect"
-      class="text-xl mb-5 font-bold p-4 bg-green-200 rounded-md border-green-600 border"
+      class="text-xl mb-5 font-bold p-4 bg-green-500 rounded-md"
     >
-      <p style="color: gray">CORRECT!</p>
+      <ct color="white" size="header">CORRECT!</ct>
     </div>
     <div
       *ngIf="answered && !isCorrect"
-      class="text-xl mb-5 font-bold p-4 bg-red-200 rounded-md border-red-600 border"
+      class="text-xl mb-5 font-bold p-4 bg-red-500 rounded-md"
     >
-      <p style="color: white">WRONG!</p>
+      <ct color="white">WRONG!</ct>
     </div>
     <div
       class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 w-full md:w-1/2 mb-5 justify-center"
@@ -43,12 +43,36 @@
         {{ currentQuestion.kanji }}
       </div>
       <div class="w-full" *ngIf="answered">
+        <div *ngIf="answered && isCorrect" class="flex justify-center">
+          <div class="w-24 mb-5 font-bold p-2 bg-green-500 rounded-md">
+            <div class="flex flex-row gap-x-2">
+              <mat-icon
+                aria-hidden="false"
+                fontIcon="arrow_upward"
+                style="color: white"
+              ></mat-icon>
+              <ct color="white">Master</ct>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="answered && !isCorrect" class="flex justify-center">
+          <div class="w-24 mb-5 font-bold p-2 bg-red-500 rounded-md">
+            <div class="flex flex-row gap-x-2">
+              <mat-icon
+                aria-hidden="false"
+                fontIcon="arrow_downward"
+                style="color: white"
+              ></mat-icon>
+              <ct color="white">Pemula</ct>
+            </div>
+          </div>
+        </div>
         <div *ngIf="isAnswerTypo === 'typo'" class="text-black mb-3">
           Your answer seems a little bit off
         </div>
         <app-expansion-panel title="Readings">
-          <div class="flex items-center space-x-4">
-            <btn variation="secondary" (click)="onListen()">
+          <div class="flex items-center space-x-4 mb-3">
+            <btn variation="secondary" (click)="onListen()" [isLoading]="!voicesLoaded">
               <mat-icon
                 aria-hidden="false"
                 aria-label="Example home icon"
@@ -56,13 +80,15 @@
                 style="color: black"
               ></mat-icon>
             </btn>
-            <p class="text-xl font-bold">{{ currentQuestion.answer }}</p>
+            <ct color="white" size="sub-header">{{
+              currentQuestion.answer
+            }}</ct>
           </div>
 
-          <div class="text-black mt-3">this is how your read</div>
+          <ct color="white">this is how your read</ct>
         </app-expansion-panel>
         <app-expansion-panel title="Meaning">
-          <div class="text-black">this is the meaning</div>
+          <ct color="white">this is the meaning</ct>
         </app-expansion-panel>
       </div>
     </div>
