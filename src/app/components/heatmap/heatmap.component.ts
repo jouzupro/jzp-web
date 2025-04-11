@@ -97,19 +97,6 @@ interface ContributionData {
 })
 export class HeatmapComponent implements OnInit {
   data: ContributionData[] = [
-    { date: '23 Jan 2025', contribution: 30 },
-    { date: '12 Feb 2025', contribution: 12 },
-    { date: '01 Jan 2025', contribution: 5 },
-    { date: '15 Mar 2025', contribution: 20 },
-    { date: '28 Apr 2025', contribution: 8 },
-    { date: '10 May 2025', contribution: 35 },
-    { date: '05 Jun 2025', contribution: 15 },
-    { date: '18 Jul 2025', contribution: 25 },
-    { date: '02 Aug 2025', contribution: 10 },
-    { date: '20 Sep 2025', contribution: 40 },
-    { date: '11 Oct 2025', contribution: 3 },
-    { date: '30 Nov 2025', contribution: 18 },
-    { date: '25 Dec 2025', contribution: 22 },
   ];
 
   contributionsMap: { [week: number]: { [day: number]: number } } = {};

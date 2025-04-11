@@ -1,11 +1,56 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, Input, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'kanji-box',
-  imports: [],
-  template: `<div class="border rounded-md p-4 bg-blue-200 text-5xl text-white">
-    <ng-content></ng-content>
-  </div>`,
+  imports: [CommonModule],
+  template: `
+    <div
+      class="rounded-md p-4 flex flex-col items-center relative"
+      [class.bg-gray-400]="type === 'locked'"
+      [class.bg-green-500]="type === '' || type === 'learned'"
+      [class.bg-blue-500]="type === 'unlearned' || type === 'unlocked'"
+    >
+      <div
+        *ngIf="type === 'unlocked'"
+        class="absolute top-2 right-2 bg-yellow-500 text-yellow-900 text-xs font-semibold rounded-full px-2 py-1 z-10"
+      >
+        Baru
+      </div>
+      <div
+        *ngIf="type === 'locked'"
+        class="absolute top-2 right-2 bg-gray-500 text-white text-xs font-semibold rounded-full px-2 py-1 z-10"
+      >
+        Terkunci
+      </div>
+      <div class="text-5xl text-white">
+        <ng-content></ng-content>
+      </div>
+      <div *ngIf="hiragana != ''" class="text-sm text-white">
+        {{ hiragana }}
+      </div>
+      <div *ngIf="meaning != ''" class="text-sm text-white">
+        {{ meaning }}
+      </div>
+      <div
+        *ngIf="type === 'locked'"
+        class="absolute top-0 left-0 w-full h-full bg-gray-100 opacity-75 flex justify-center items-center rounded-md"
+      ></div>
+    </div>
+  `,
   styleUrl: './kanji-box.component.css',
 })
-export class KanjiBoxComponent {}
+export class KanjiBoxComponent {
+  @Input() hiragana: string = '';
+  @Input() meaning: string = '';
+  @Input() type: string = '';
+
+  // You can also use HostBinding for more direct class manipulation if needed
+  // @HostBinding('class.bg-green-500') get isDefaultOrLearned() {
+  //   return this.type === '' || this.type === 'learned';
+  // }
+
+  // @HostBinding('class.bg-blue-500') get isUnlearned() {
+  //   return this.type === 'unlearned';
+  // }
+}

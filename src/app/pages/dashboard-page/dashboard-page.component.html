@@ -1,44 +1,36 @@
 <div class="bg-white p-6 rounded-lg shadow-md space-y-4">
   <div class="flex flex-col sm:flex-row gap-4 w-full">
-    <div class="border w-full p-3 rounded-md">
-      <ct size="header">Learn</ct>
-      <ct>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </ct>
-    </div>
-    <div class="border w-full p-3 rounded-md">
-      <ct size="header">Review</ct>
-      <ct>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </ct>
-    </div>
-  </div>
-
-  <div class="border rounded-md p-3">
-    <div class="grid grid-cols-1 md:grid-cols-6 gap-5">
-      <div class="space-y-4 col-span-1 md:col-span-4">
-        <ct size="header">Learning Summary</ct>
-        <ct>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </ct>
+    <div class="bg-blue-500 w-full p-3 rounded-md">
+      <ct size="sub-header" color="white">Lessons Available</ct>
+      <div class="my-5">
+        <ct size="content" color="white" class="leading-none"
+          >There are {{ lessonsAvailable }} lessons Available, Start Learning
+          now to unlocked them</ct
+        >
       </div>
-      <div class="w-full h-[300px] bg-amber-300 col-span-1 md:col-span-2"></div>
+      <btn full variation="white">
+        <span class="text-blue-500"> Start Learning </span>
+      </btn>
+    </div>
+    <div class="bg-pink-500 w-full p-3 rounded-md">
+      <ct size="sub-header" color="white">Reviews Available</ct>
+      <div class="my-5">
+        <ct size="content" color="white" class="leading-none"
+          >There are {{ lessonsAvailable }} Reviews Available, Start Reviewing
+          now to progress</ct
+        >
+      </div>
+      <btn full variation="white">
+        <span class="text-pink-500"> Start Reviewing </span>
+      </btn>
     </div>
   </div>
 
   <div class="flex items-center w-full mb-5">
-    <div class="w-full h-10 bg-gray-200 rounded-md overflow-hidden relative">
-      <ct class="absolute right-2 top-1/2 transform -translate-y-1/2 text-sm"
-        >23/70</ct
-      >
+    <div class="w-full h-6 bg-gray-200 rounded-md overflow-hidden relative">
+      <ct class="absolute right-2 top-1/2 transform -translate-y-1/2 text-sm">
+        23/70
+      </ct>
       <div
         class="h-full bg-blue-500 transition-width duration-300 ease-in-out"
         [style.width.%]="30"
@@ -48,39 +40,65 @@
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-6 gap-5">
-    <div class="col-span-1 md:col-span-2 border rounded-md p-3">
-      <ct size="sub-header">Lesson History</ct>
-      <div class="mt-3">
-        <app-expansion-panel title="Today">
-          <ct>your learning today</ct>
-        </app-expansion-panel>
-        <app-expansion-panel title="Yesterday">
-          <ct>your learning today</ct>
-        </app-expansion-panel>
-        <app-expansion-panel title="21 March">
-          <ct>your learning today</ct>
-        </app-expansion-panel>
-      </div>
-    </div>
-    <div class="col-span-1 md:col-span-4 border rounded-md p-3">
-      <ct size="sub-header">Radicals</ct>
+    <div class="col-span-1 md:col-span-4 bg-gray-100 rounded-md p-3">
+      <ct size="sub-header">Progress</ct>
       <div class="flex flex-wrap gap-4 my-3">
-        <kanji-box>川</kanji-box>
-        <kanji-box>上</kanji-box>
-        <kanji-box>下</kanji-box>
-        <kanji-box>日</kanji-box>
+        <kanji-box
+          *ngFor="let kanji of listKanji"
+          [hiragana]="kanji.hiragana"
+          [meaning]="kanji.meaning"
+          [type]="kanji.type"
+          >{{ kanji.char }}</kanji-box
+        >
       </div>
-      <ct size="sub-header">Kanji</ct>
+      <ct size="sub-header">Status</ct>
       <div class="flex flex-wrap gap-4 my-3">
-        <kanji-box>川</kanji-box>
-        <kanji-box>上</kanji-box>
-        <kanji-box>下</kanji-box>
-        <kanji-box>日</kanji-box>
+        <status-box level="1" total="13" />
+        <status-box level="2" total="24" />
+        <status-box level="3" total="5" />
+        <status-box level="4" total="0" />
+        <status-box level="5" total="0" />
+        <status-box level="6" total="0" />
+        <status-box level="7" total="0" />
+        <!-- <status-box statusName="Pemula" totalItem="1" />
+        <status-box statusName="Pegiat" totalItem="1" />
+        <status-box statusName="Pembelajar" totalItem="1" />
+        <status-box statusName="Mahir" totalItem="1" />
+        <status-box statusName="Ahli" totalItem="1" />
+        <status-box statusName="Lanjutan" totalItem="1" /> -->
       </div>
     </div>
   </div>
 
-  <div class="border p-3 rounded-md" *ngIf="!isMobile">
-    <app-heatmap></app-heatmap>
+  <div class="col-span-1 md:col-span-2 bg-gray-100 rounded-md p-3">
+    <ct size="sub-header">Lesson History</ct>
+    <div class="mt-3">
+      <app-expansion-panel
+        *ngFor="let history of historyList"
+        [title]="history.date"
+      >
+        <div *ngIf="history.reviews.length > 0" class="mb-3">
+          <ct color="white" size="content">Reviews</ct>
+          <div
+            *ngFor="let reviews of history.reviews"
+            class="flex justify-between"
+          >
+            <ct color="white">{{ reviews.date }}</ct>
+            <ct color="white"> + {{ reviews.total }}</ct>
+          </div>
+        </div>
+
+        <div *ngIf="history.learned.length > 0">
+          <ct color="white" size="content">Learned</ct>
+          <div
+            *ngFor="let lesson of history.learned"
+            class="flex justify-between"
+          >
+            <ct color="white">{{ lesson.date }}</ct>
+            <ct color="white"> + {{ lesson.total }}</ct>
+          </div>
+        </div>
+      </app-expansion-panel>
+    </div>
   </div>
 </div>

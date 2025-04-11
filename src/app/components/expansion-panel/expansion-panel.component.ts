@@ -8,33 +8,36 @@ import {
   transition,
   animate,
 } from '@angular/animations';
+import { DividerComponent } from '../divider/divider.component';
 
 @Component({
   selector: 'app-expansion-panel',
   standalone: true,
-  imports: [CommonModule, MatIconModule],
+  imports: [CommonModule, MatIconModule, DividerComponent],
   template: `
-    <div class="border rounded w-full">
+    <div class=" bg-gray-500 rounded w-full mb-2">
       <button
         class="w-full p-4 flex justify-between items-center"
         (click)="togglePanel()"
       >
-        <span class="text-black text-lg font-semibold">{{ title }}</span>
+        <span class="text-white text-lg font-semibold">{{ title }}</span>
         <mat-icon
-          class="transition-transform duration-300 text-black"
+          class="transition-transform duration-300"
           [class.transform]="!isOpen"
           [class.-rotate-180]="isOpen"
+          style="color: white;"
         >
           expand_more
         </mat-icon>
       </button>
 
-      <div
-        *ngIf="isOpen"
-        [@slideInOut]="isOpen"
-        class="p-4 border-t w-full overflow-hidden"
-      >
-        <ng-content></ng-content>
+      <div *ngIf="isOpen" [@slideInOut]="isOpen">
+        <div class="px-4">
+          <divider full/>
+        </div>
+        <div class="p-4 w-full overflow-hidden">
+          <ng-content></ng-content>
+        </div>
       </div>
     </div>
   `,

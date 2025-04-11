@@ -10,8 +10,9 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrl: './custom-typography.component.css',
 })
 export class CustomTypographyComponent implements OnInit {
+  @Input({ alias: 'level' }) levelText: number = 0;
   @Input() size: '' | 'header' | 'content' | 'sub-header' = '';
-  @Input() color: 'primary' | 'secondary' | 'gray' = 'gray';
+  @Input() color: 'primary' | 'secondary' | 'gray' | 'white' = 'gray';
 
   classes: string = '';
 
@@ -38,19 +39,49 @@ export class CustomTypographyComponent implements OnInit {
 
     let colorClass = '';
 
-    switch (this.color) {
-      case 'primary':
-        colorClass = 'text-blue-500';
-        break;
-      case 'secondary':
-        colorClass = 'text-green-500';
-        break;
-      case 'gray':
-        colorClass = 'text-gray-800';
-        break;
-      default:
-        colorClass = 'text-gray-800';
-        break;
+    if (this.levelText === 0) {
+      switch (this.color) {
+        case 'primary':
+          colorClass = 'text-blue-500';
+          break;
+        case 'secondary':
+          colorClass = 'text-green-500';
+          break;
+        case 'gray':
+          colorClass = 'text-gray-800';
+          break;
+        case 'white':
+          colorClass = 'text-white';
+          break;
+        default:
+          colorClass = 'text-gray-800';
+          break;
+      }
+    } else {
+      colorClass = 'text-white'
+      // switch (this.levelText) {
+      //   case 1:
+      //     colorClass = 'text-sky-100';
+      //     break;
+      //   case 2:
+      //     colorClass = 'text-green-100';
+      //     break;
+      //   case 3:
+      //     colorClass = 'text-yellow-100';
+      //     break;
+      //   case 4:
+      //     colorClass = 'text-orange-100';
+      //     break;
+      //   case 5:
+      //     colorClass = 'text-rose-100';
+      //     break;
+      //   case 6:
+      //     colorClass = 'text-white';
+      //     break;
+
+      //   default:
+      //     break;
+      // }
     }
 
     this.classes = `${sizeClass} ${colorClass}`;

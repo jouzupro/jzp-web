@@ -4,5 +4,59 @@
 p {
     color: rgb(28, 28, 28);
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; color: black; }
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    overflow-x: clip;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    color: black;
+}
+
+:root {
+    --mat-toolbar-container-background-color: rgb(79, 208, 255);
+    --mat-toolbar-container-text-color: black;
+    --mat-icon-color: black;
+
+    /* buttons */
+    --mat-button-filled-container-color: orange;
+    --mat-button-filled-label-text-color: red;
+
+}
+
+/* Target the specific FAB classes with the accent color */
+.mat-mdc-fab.mat-accent,
+.mat-mdc-extended-fab.mat-accent {
+  --mdc-fab-container-color: var(--mat-button-filled-container-color) !important;
+  --mdc-fab-label-text-color: var(--mat-button-filled-label-text-color) !important;
+}
+
+/* Your previous rules for standard buttons - keep these if you have other button types */
+.mat-mdc-button.mat-mdc-button-base.mat-primary,
+.mat-mdc-raised-button.mat-mdc-button-base.mat-primary,
+.mat-mdc-unelevated-button.mat-mdc-button-base.mat-primary,
+.mat-mdc-outlined-button.mat-mdc-button-base.mat-primary,
+.mat-mdc-flat-button.mat-mdc-button-base.mat-primary,
+.mat-mdc-icon-button.mat-mdc-button-base.mat-primary,
+.mat-mdc-fab.mat-mdc-button-base.mat-primary, /* Include FAB with primary color */
+.mat-mdc-mini-fab.mat-mdc-button-base.mat-primary {
+  --mdc-filled-button-container-color: var(--mat-button-filled-container-color) !important;
+  --mdc-filled-button-label-text-color: var(--mat-button-filled-label-text-color) !important;
+}
+
+.mat-mdc-button.mat-mdc-button-base.mat-accent,
+.mat-mdc-raised-button.mat-mdc-button-base.mat-accent,
+.mat-mdc-unelevated-button.mat-mdc-button-base.mat-accent,
+.mat-mdc-outlined-button.mat-mdc-button-base.mat-accent,
+.mat-mdc-flat-button.mat-mdc-button-base.mat-accent,
+.mat-mdc-icon-button.mat-mdc-button-base.mat-accent,
+.mat-mdc-fab.mat-mdc-button-base.mat-accent, /* Include FAB with accent color */
+.mat-mdc-mini-fab.mat-mdc-button-base.mat-accent {
+  --mdc-filled-tonal-button-container-color: var(--mat-button-filled-container-color) !important;
+  --mdc-filled-tonal-button-label-text-color: var(--mat-button-filled-label-text-color) !important;
+}
