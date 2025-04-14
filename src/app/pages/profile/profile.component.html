@@ -1,17 +1,62 @@
 <div class="bg-gray-50 p-4 rounded-lg shadow-md space-y-4 m-4">
-    <div class="flex flex-col items-center gap-y-3">
-        <div class="w-32 h-32 rounded-full bg-amber-400"></div>
-        <ct size="sub-header">Your Name</ct>
-    </div>
+  <div class="flex flex-col items-center gap-y-3">
+    <div class="w-32 h-32 rounded-full bg-amber-400"></div>
+    <ct size="sub-header">Your Name</ct>
+  </div>
 
-    <div class="w-full h-6 bg-gray-200 rounded-md overflow-hidden relative">
-        <ct class="absolute right-2 top-1/2 transform -translate-y-1/2 text-sm">
-          23/70
-        </ct>
-        <div
-          class="h-full bg-blue-500 transition-width duration-300 ease-in-out"
-          [style.width.%]="30"
-          id="progress-bar"
-        ></div>
-      </div>
+  <div class="w-full h-6 bg-gray-200 rounded-md overflow-hidden relative">
+    <ct class="absolute right-2 top-1/2 transform -translate-y-1/2 text-sm">
+      23/70
+    </ct>
+    <div
+      class="h-full bg-blue-500 transition-width duration-300 ease-in-out"
+      [style.width.%]="30"
+      id="progress-bar"
+    ></div>
+  </div>
+
+  <div class="flex flex-col gap-2">
+    <div
+      *ngFor="let data of profileData | keyvalue"
+      class="flex justify-between items-center"
+    >
+      <ct class="font-medium text-gray-700">{{
+        data.key | classNameToText
+      }}</ct>
+      <ct class="text-gray-900">{{ data.value }}</ct>
+    </div>
+  </div>
+</div>
+<div class="p-4">
+  <div class="col-span-1 md:col-span-2 bg-gray-100 rounded-md p-3">
+    <ct size="sub-header">Lesson History</ct>
+    <div class="mt-3">
+      <app-expansion-panel
+        *ngFor="let history of historyList"
+        [title]="history.date"
+      >
+        <div *ngIf="history.reviews.length > 0" class="mb-3">
+          <ct color="white" size="content">Reviews</ct>
+          <div
+            *ngFor="let reviews of history.reviews"
+            class="flex justify-between"
+          >
+            <ct color="white">{{ reviews.date }}</ct>
+            <ct color="white"> + {{ reviews.total }}</ct>
+          </div>
+        </div>
+
+        <div *ngIf="history.learned.length > 0">
+          <ct color="white" size="content">Learned</ct>
+          <div
+            *ngFor="let lesson of history.learned"
+            class="flex justify-between"
+          >
+            <ct color="white">{{ lesson.date }}</ct>
+            <ct color="white"> + {{ lesson.total }}</ct>
+          </div>
+        </div>
+      </app-expansion-panel>
+    </div>
+  </div>
 </div>
