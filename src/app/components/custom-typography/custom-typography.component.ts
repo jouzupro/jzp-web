@@ -11,7 +11,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CustomTypographyComponent implements OnInit {
   @Input({ alias: 'level' }) levelText: number = 0;
-  @Input() size: '' | 'header' | 'content' | 'sub-header' = '';
+  @Input() size: '' | 'header' | 'content' | 'sub-header' | 'content-header' =
+    '';
   @Input() color: 'primary' | 'secondary' | 'gray' | 'white' = 'gray';
 
   classes: string = '';
@@ -28,6 +29,9 @@ export class CustomTypographyComponent implements OnInit {
         break;
       case 'sub-header':
         sizeClass = 'text-xl font-semibold md:text-2xl';
+        break;
+      case 'content-header':
+        sizeClass = 'text-lg font-semibold md:text-lg';
         break;
       case 'content':
         sizeClass = 'text-base md:text-lg';
@@ -58,7 +62,7 @@ export class CustomTypographyComponent implements OnInit {
           break;
       }
     } else {
-      colorClass = 'text-white'
+      colorClass = 'text-white';
       // switch (this.levelText) {
       //   case 1:
       //     colorClass = 'text-sky-100';

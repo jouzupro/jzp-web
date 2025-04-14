@@ -10,7 +10,15 @@ import { Component, Input, HostBinding } from '@angular/core';
       [class.bg-gray-400]="type === 'locked'"
       [class.bg-green-500]="type === '' || type === 'learned'"
       [class.bg-blue-500]="type === 'unlearned' || type === 'unlocked'"
+      [class.border-red-500]="status < 50"
+      [class.border]="status < 50"
     >
+      <div
+        *ngIf="status < 50"
+        class="absolute top-2 right-2 bg-red-500 text-red-900 text-xs font-semibold rounded-full px-2 py-1 z-10"
+      >
+        {{status}}%
+      </div>
       <div
         *ngIf="type === 'unlocked'"
         class="absolute top-2 right-2 bg-yellow-500 text-yellow-900 text-xs font-semibold rounded-full px-2 py-1 z-10"
@@ -44,6 +52,7 @@ export class KanjiBoxComponent {
   @Input() hiragana: string = '';
   @Input() meaning: string = '';
   @Input() type: string = '';
+  @Input() status: number = 100;
 
   // You can also use HostBinding for more direct class manipulation if needed
   // @HostBinding('class.bg-green-500') get isDefaultOrLearned() {

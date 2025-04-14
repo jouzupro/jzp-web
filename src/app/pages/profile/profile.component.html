@@ -14,22 +14,45 @@
       id="progress-bar"
     ></div>
   </div>
-
-  <div class="flex flex-col gap-2">
-    <div
-      *ngFor="let data of profileData | keyvalue"
-      class="flex justify-between items-center"
-    >
-      <ct class="font-medium text-gray-700">{{
-        data.key | classNameToText
-      }}</ct>
-      <ct class="text-gray-900">{{ data.value }}</ct>
+  <div class="bg-gray-50 p-4 rounded-lg shadow-md space-y-4 my-4">
+    <ct size="sub-header" class="text-center">Summary</ct>
+    <div class="flex flex-col gap-2 mt-3">
+      <div
+        *ngFor="let data of profileData | keyvalue"
+        class="flex justify-between items-center"
+      >
+        <ct class="font-medium text-gray-700">{{
+          data.key | classNameToText
+        }}</ct>
+        <ct class="text-gray-900">{{ data.value }}</ct>
+      </div>
     </div>
   </div>
-</div>
-<div class="p-4">
-  <div class="col-span-1 md:col-span-2 bg-gray-100 rounded-md p-3">
-    <ct size="sub-header">Lesson History</ct>
+  <div class="bg-gray-50 p-4 rounded-lg shadow-md space-y-4 my-4">
+    <ct size="sub-header" class="text-center">JLPT Progress</ct>
+    <div class="flex flex-col gap-2 mt-3">
+      <div *ngFor="let data of jlptData | keyvalue" class="flex flex-col mb-2">
+        <ct class="font-medium text-gray-700">{{
+          data.key | classNameToText
+        }}</ct>
+        <div class="w-full h-4 bg-gray-200 rounded-md overflow-hidden relative">
+          <div
+            class="h-full bg-blue-500 transition-width duration-300 ease-in-out"
+            [style.width.%]="calculatePercentage(data.value)"
+            id="progress-bar"
+          ></div>
+        </div>
+        <ct class="text-sm text-gray-500 mt-1 block text-right">{{
+          data.value
+        }}</ct>
+      </div>
+    </div>
+  </div>
+  <div class="bg-gray-50 p-4 rounded-lg shadow-md space-y-4 my-4">
+    <month-heatmap></month-heatmap>
+  </div>
+  <div class="bg-gray-50 p-4 rounded-lg shadow-md space-y-4 my-4">
+    <ct size="content-header">Lesson History</ct>
     <div class="mt-3">
       <app-expansion-panel
         *ngFor="let history of historyList"
@@ -58,5 +81,46 @@
         </div>
       </app-expansion-panel>
     </div>
+  </div>
+  <div class="bg-gray-50 p-4 rounded-lg shadow-md space-y-4 my-4">
+    <ct size="content-header">Current Level Kanji</ct>
+    <div>
+      <div class="flex flex-wrap gap-4 my-3">
+        <kanji-box
+          *ngFor="let kanji of listKanji"
+          [hiragana]="kanji.hiragana"
+          [meaning]="kanji.meaning"
+          [type]="kanji.type"
+          >{{ kanji.char }}</kanji-box
+        >
+      </div>
+    </div>
+    <ct size="content-header">Current Level Locked Kanji</ct>
+    <div>
+      <div class="flex flex-wrap gap-4 my-3">
+        <kanji-box
+          *ngFor="let kanji of listKanjiLocked"
+          [hiragana]="kanji.hiragana"
+          [meaning]="kanji.meaning"
+          [type]="kanji.type"
+          >{{ kanji.char }}</kanji-box
+        >
+      </div>
+    </div>
+    <ct size="content-header">Critical Status Kanji</ct>
+    <div>
+      <div class="flex flex-wrap gap-4 my-3">
+        <kanji-box
+          *ngFor="let kanji of criticalKanji"
+          [hiragana]="kanji.hiragana"
+          [meaning]="kanji.meaning"
+          [type]="kanji.type"
+          [status]="kanji.status"
+          >{{ kanji.char }}</kanji-box
+        >
+      </div>
+    </div>
+
+    <btn full>See More</btn>
   </div>
 </div>
