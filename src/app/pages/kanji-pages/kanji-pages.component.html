@@ -1,0 +1,46 @@
+<div class="bg-gray-50 p-4 rounded-lg shadow-md space-y-4 m-4">
+  <btn full>Start Practice</btn>
+  <div class="mt-4">
+    <btn full (click)="openFilter()">Filter Kanji</btn>
+  </div>
+  <div class="bg-gray-50 p-4 rounded-lg shadow-md space-y-4 my-4">
+    <ct size="content-header">Radicals</ct>
+    <div>
+      <div class="flex flex-wrap gap-4 my-3">
+        <kanji-box
+          *ngFor="let kanji of listRadicals"
+          [meaning]="kanji.meaning"
+          [type]="kanji.type"
+          [isMinimize]="!payload.isMaximized"
+          >{{ kanji.char }}</kanji-box
+        >
+      </div>
+    </div>
+    <ct size="content-header">Kanji</ct>
+    <div>
+      <div class="flex flex-wrap gap-4 my-3">
+        <kanji-box
+          *ngFor="let kanji of listKanji"
+          [hiragana]="kanji.hiragana"
+          [meaning]="kanji.meaning"
+          [type]="kanji.type"
+          [isMinimize]="!payload.isMaximized"
+          >{{ kanji.char }}</kanji-box
+        >
+      </div>
+    </div>
+    <ct size="content-header">Vocabulary</ct>
+    <div>
+      <div class="flex flex-col gap-y-3">
+        <vocab-box
+          *ngFor="let kanji of listVocab"
+          [hiragana]="kanji.hiragana"
+          [meaning]="kanji.meaning"
+          [type]="kanji.type"
+          [isMinimize]="!payload.isMaximized"
+          >{{ kanji.char }}</vocab-box
+        >
+      </div>
+    </div>
+  </div>
+</div>

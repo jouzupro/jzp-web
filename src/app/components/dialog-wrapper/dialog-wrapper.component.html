@@ -1,0 +1,54 @@
+<h2 mat-dialog-title>Filter</h2>
+<mat-dialog-content class="mat-typography">
+  <div class="w-full">
+    <ct>Filter By</ct>
+    <mat-radio-group
+      aria-labelledby="example-radio-group-label"
+      class="flex flex-col overflow-clip"
+      [(ngModel)]="payload.selectedFilterBy"
+    >
+      @for (types of types; track types) {
+      <mat-radio-button class="example-radio-button" [value]="types">{{
+        types
+      }}</mat-radio-button>
+      }
+    </mat-radio-group>
+
+    <ct>Display Kanji</ct>
+    <div class="my-3">
+      <mat-slide-toggle [(ngModel)]="payload.isMaximized" id="mySlideToggle">{{
+        payload.isMaximized ? "Maximized" : "Minimized"
+      }}</mat-slide-toggle>
+    </div>
+
+    <ct
+      >{{ payload.selectedFilterBy| classNameToText }}
+      <span *ngIf="payload.selectedFilterBy != 'level'"> Level</span>
+    </ct>
+
+    <select
+      *ngIf="payload.selectedFilterBy === 'level'"
+      [(ngModel)]="payload.selectedParam"
+      (change)="onParamChange()"
+      class="p-2 border rounded my-3 w-full"
+    >
+      <option *ngFor="let opt of optionParam" [value]="opt">
+        {{ opt }}
+      </option>
+    </select>
+    <select
+      *ngIf="payload.selectedFilterBy != 'level'"
+      [(ngModel)]="payload.selectedParam"
+      (change)="onParamChange()"
+      class="p-2 border rounded my-3 w-full"
+    >
+      <option *ngFor="let opt of optionDiff" [value]="opt.value">
+        {{ opt.label }}
+      </option>
+    </select>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="payload" cdkFocusInitial>Apply</button>
+</mat-dialog-actions>

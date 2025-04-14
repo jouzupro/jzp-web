@@ -1,0 +1,20 @@
+/*:root{*/
+/*    !* checkbox *!*/
+/*    --mat-slide-toggle-selected-focus-state-layer-color: red;*/
+/*}*/
+
+:host ::ng-deep .mat-slide-toggle#mySlideToggle.mat-primary .mat-slide-toggle-thumb {
+  background-color: red !important;
+}
+
+:host ::ng-deep .mat-slide-toggle#mySlideToggle.mat-primary .mat-slide-toggle-track {
+  background-color: rgba(255, 0, 0, 0.5) !important;
+}
+
+:host ::ng-deep .mat-slide-toggle#mySlideToggle .mat-slide-toggle-thumb {
+    background-color: gray !important;
+}
+
+:host ::ng-deep .mat-slide-toggle#mySlideToggle .mat-slide-toggle-track {
+    background-color: lightgray !important;
+}

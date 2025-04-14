@@ -6,6 +6,7 @@ import { LoginComponent } from '../pages/login/login.component';
 import { RegisterComponent } from '../pages/register/register.component';
 import { LessonPreviewComponent } from '../pages/lesson-preview/lesson-preview.component';
 import { ProfileComponent } from '../pages/profile/profile.component';
+import { KanjiPagesComponent } from '../pages/kanji-pages/kanji-pages.component';
 
 export const routes: Routes = [
   {
@@ -30,6 +31,12 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
     title: 'Profile',
     component: ProfileComponent,
+  },
+  {
+    path: 'materials',
+    canActivate: [AuthGuard],
+    title: 'Materials',
+    component: KanjiPagesComponent,
   },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },

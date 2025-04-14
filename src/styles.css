@@ -30,6 +30,18 @@ body {
     /* menu */
     --mat-menu-item-label-text-color: black;
     --mat-menu-container-color: white;
+    --mat-menu-item-icon-color: black;
+
+    /* dialogues */
+    --mat-sys-surface: white;
+    --mat-sys-on-surface: black;
+    --mat-sys-on-surface-variant: rgb(13, 0, 255);
+
+    /* radio */
+    --mat-sys-on-surface-variant: black;
+    --mat-sys-primary: rgb(127, 120, 255);
+    --mat-sys-primary-container: rgb(13, 0, 255);
+    --mat-sys-surface-variant: rgb(211, 210, 210);
 }
 
 /* Target the specific FAB classes with the accent color */
@@ -62,4 +74,20 @@ body {
 .mat-mdc-mini-fab.mat-mdc-button-base.mat-accent {
   --mdc-filled-tonal-button-container-color: var(--mat-button-filled-container-color) !important;
   --mdc-filled-tonal-button-label-text-color: var(--mat-button-filled-label-text-color) !important;
+}
+
+.mat-slide-toggle.mat-primary .mat-slide-toggle-thumb {
+  background-color: red !important;
+}
+
+.mat-slide-toggle.mat-primary .mat-slide-toggle-track {
+  background-color: rgba(255, 0, 0, 0.5) !important;
+}
+
+.mat-slide-toggle .mat-slide-toggle-thumb {
+    background-color: gray !important;
+}
+
+.mat-slide-toggle  .mat-slide-toggle-track {
+    background-color: lightgray !important;
 }
