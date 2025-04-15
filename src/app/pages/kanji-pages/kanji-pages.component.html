@@ -4,7 +4,7 @@
     <btn full (click)="openFilter()">Filter Kanji</btn>
   </div>
   <div class="bg-gray-50 p-4 rounded-lg shadow-md space-y-4 my-4">
-    <ct size="content-header">Radicals</ct>
+    <ct size="ch">Radicals</ct>
     <div>
       <div class="flex flex-wrap gap-4 my-3">
         <kanji-box
@@ -12,11 +12,12 @@
           [meaning]="kanji.meaning"
           [type]="kanji.type"
           [isMinimize]="!payload.isMaximized"
+          (click)="getDetail(kanji)"
           >{{ kanji.char }}</kanji-box
         >
       </div>
     </div>
-    <ct size="content-header">Kanji</ct>
+    <ct size="ch">Kanji</ct>
     <div>
       <div class="flex flex-wrap gap-4 my-3">
         <kanji-box
@@ -25,11 +26,12 @@
           [meaning]="kanji.meaning"
           [type]="kanji.type"
           [isMinimize]="!payload.isMaximized"
+          (click)="getDetail(kanji)"
           >{{ kanji.char }}</kanji-box
         >
       </div>
     </div>
-    <ct size="content-header">Vocabulary</ct>
+    <ct size="ch">Vocabulary</ct>
     <div>
       <div class="flex flex-col gap-y-3">
         <vocab-box
@@ -38,6 +40,7 @@
           [meaning]="kanji.meaning"
           [type]="kanji.type"
           [isMinimize]="!payload.isMaximized"
+          (click)="getDetail(kanji)"
           >{{ kanji.char }}</vocab-box
         >
       </div>

@@ -26,7 +26,7 @@
       *ngIf="answered && isCorrect"
       class="text-xl mb-5 font-bold p-4 bg-green-500 rounded-md"
     >
-      <ct color="white" size="header">CORRECT!</ct>
+      <ct color="white" size="t">CORRECT!</ct>
     </div>
     <div
       *ngIf="answered && !isCorrect"
@@ -80,7 +80,7 @@
                 style="color: black"
               ></mat-icon>
             </btn>
-            <ct color="white" size="sub-header">{{
+            <ct color="white" size="ch">{{
               currentQuestion.answer
             }}</ct>
           </div>

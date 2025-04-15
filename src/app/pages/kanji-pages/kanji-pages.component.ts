@@ -11,6 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DialogWrapperComponent } from '../../components/dialog-wrapper/dialog-wrapper.component';
 import { VocabBoxComponent } from '../../components/vocab-box/vocab-box.component';
 import { IFilterKanji } from '../../constant/types';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-kanji-pages',
@@ -71,26 +72,31 @@ export class KanjiPagesComponent {
       char: '亅',
       meaning: 'barb',
       type: 'learned',
+      id: 'r1',
     },
     {
       char: '丶',
       meaning: 'dot',
       type: 'learned',
+      id: 'r1',
     },
     {
       char: '丿',
       meaning: 'slash',
       type: 'learned',
+      id: 'r1',
     },
     {
       char: '乙',
       meaning: 'second',
       type: 'learned',
+      id: 'r1',
     },
     {
       char: '一',
       meaning: 'one',
       type: 'learned',
+      id: 'r1',
     },
   ];
   listKanji = [
@@ -126,6 +132,8 @@ export class KanjiPagesComponent {
     },
   ];
 
+  constructor(private router: Router) {}
+
   openFilter() {
     const dialogRef = this.dialog.open(DialogWrapperComponent);
 
@@ -135,5 +143,9 @@ export class KanjiPagesComponent {
 
       console.log(this.payload);
     });
+  }
+
+  getDetail(res: any) {
+    this.router.navigate(['kanji-detail'], { queryParams: { id: res.id } });
   }
 }

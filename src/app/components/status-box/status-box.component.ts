@@ -8,10 +8,10 @@ import { DividerComponent } from '../divider/divider.component';
   template: `
     <div class="rounded-md p-4 flex flex-col w-60" [class]="baseClass">
       <div class="flex justify-between mb-2">
-        <ct size="sub-header" [level]="level">
+        <ct size="ch" [level]="level">
           {{ statusName }}
         </ct>
-        <ct size="sub-header" [level]="level">
+        <ct size="ch" [level]="level">
           {{ totalItem }}
         </ct>
       </div>

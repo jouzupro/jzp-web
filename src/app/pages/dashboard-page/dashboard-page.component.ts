@@ -91,7 +91,10 @@ export class DashboardPageComponent implements OnInit {
   }
 
   navigateToPlay() {
-    console.log('test')
+    console.log('test');
     this.router.navigate(['play']);
+  }
+  getDetail(res: any) {
+    this.router.navigate(['kanji-detail'], { queryParams: { id: res.id } });
   }
 }

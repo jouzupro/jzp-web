@@ -7,6 +7,7 @@ import { RegisterComponent } from '../pages/register/register.component';
 import { LessonPreviewComponent } from '../pages/lesson-preview/lesson-preview.component';
 import { ProfileComponent } from '../pages/profile/profile.component';
 import { KanjiPagesComponent } from '../pages/kanji-pages/kanji-pages.component';
+import { KanjiDetailPageComponent } from '../pages/kanji-detail-page/kanji-detail-page.component';
 
 export const routes: Routes = [
   {
@@ -37,6 +38,12 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
     title: 'Materials',
     component: KanjiPagesComponent,
+  },
+  {
+    path: 'kanji-detail',
+    canActivate: [AuthGuard],
+    title: 'Detail',
+    component: KanjiDetailPageComponent,
   },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },

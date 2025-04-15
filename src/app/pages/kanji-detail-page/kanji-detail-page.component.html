@@ -1,0 +1,140 @@
+<div class="bg-gray-50 p-4 rounded-lg shadow-md space-y-4 m-4">
+  <div class="flex justify-center">
+    <div class="border rounded-md p-4 w-fit">
+      <ct size="k">金</ct>
+    </div>
+  </div>
+  <div class="bg-gray-50 p-4 rounded-lg shadow-md space-y-4 my-4">
+    <ct size="ft">Arti</ct>
+    <div class="my-3">
+      <divider />
+    </div>
+    <div class="mb-3">
+      <ct size="ch">Utama</ct>
+      <br />
+      <ct>Emas</ct>
+    </div>
+    <div>
+      <ct size="ch">Sekunder</ct>
+      <br />
+      <ct>Emas, Metal, Uang</ct>
+    </div>
+  </div>
+  <div class="bg-gray-50 p-4 rounded-lg shadow-md space-y-4 my-4">
+    <ct size="ft">Mnemonic</ct>
+    <div class="my-3">
+      <divider />
+    </div>
+    <ct
+      >Underneath that hat are two bars of gold, but under those there are some
+      spikes. This is some kind of trap for people who try to take your gold.
+      And why else would you make a trap? Everyone wants to protect their
+      gold.</ct
+    >
+    <div class="p-3 bg-blue-500 rounded-md mt-3 text-white">
+      <div class="flex items-center">
+        <mat-icon
+          aria-label="Example home icon"
+          class="p-0"
+          fontIcon="info"
+          style="
+            color: white;
+            font-size: medium;
+            display: flex;
+            align-items: center;
+          "
+        ></mat-icon>
+        <ct size="ch" color="white">Hint</ct>
+      </div>
+      Just know your radicals and you'll be golden, so to speak.
+    </div>
+  </div>
+  <div class="bg-gray-50 p-4 rounded-lg shadow-md space-y-4 my-4">
+    <ct size="ft">Cara Membaca</ct>
+    <div class="my-3">
+      <divider />
+    </div>
+    <ct size="ch">Onyomi</ct>
+    <div class="bg-gray-100 rounded-md p-3 flex space-x-4 my-3 items-start">
+      <mat-icon
+        *ngIf="voicesLoaded"
+        aria-hidden="false"
+        (click)="onListen()"
+        aria-label="Example home icon"
+        [fontIcon]="isSpeaking ? 'volume_up' : 'volume_mute'"
+        style="color: black"
+      ></mat-icon>
+      <div class="flex flex-col">
+        <ct size="ch">きん</ct>
+        <ct size="nt">test</ct>
+      </div>
+    </div>
+    <ct size="ch">Kunyomi</ct>
+    <div class="bg-gray-100 rounded-md p-3 flex space-x-4 my-3 items-start">
+      <mat-icon
+        *ngIf="voicesLoaded"
+        aria-hidden="false"
+        (click)="onListen()"
+        aria-label="Example home icon"
+        [fontIcon]="isSpeaking ? 'volume_up' : 'volume_mute'"
+        style="color: black"
+      ></mat-icon>
+      <div class="flex flex-col">
+        <ct size="ch">きん</ct>
+        <ct size="nt">test</ct>
+      </div>
+    </div>
+    <div class="bg-gray-100 rounded-md p-3 flex space-x-4 my-3 items-start">
+      <mat-icon
+        *ngIf="voicesLoaded"
+        aria-hidden="false"
+        (click)="onListen()"
+        aria-label="Example home icon"
+        [fontIcon]="isSpeaking ? 'volume_up' : 'volume_mute'"
+        style="color: black"
+      ></mat-icon>
+      <div class="flex flex-col">
+        <ct size="ch">きん</ct>
+        <ct size="nt">test</ct>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-gray-50 p-4 rounded-lg shadow-md space-y-4 my-4">
+    <ct size="ft">Kombinasi Radical</ct>
+
+    <div class="my-3">
+      <divider />
+    </div>
+
+    <div class="flex flex-wrap gap-4 my-3 items-center">
+      <kanji-box [meaning]="'All'">{{ "全" }}</kanji-box>
+      <div class="text-4xl">+</div>
+      <kanji-box [meaning]="'All'">{{ "全" }}</kanji-box>
+      <div class="text-4xl">+</div>
+      <kanji-box [meaning]="'All'">{{ "全" }}</kanji-box>
+    </div>
+  </div>
+  <div class="bg-gray-50 p-4 rounded-lg shadow-md space-y-4 my-4">
+    <ct size="ft">Kanji yang Mirip Secara Visual</ct>
+
+    <div class="my-3">
+      <divider />
+    </div>
+
+    <div class="flex flex-wrap gap-4 my-3">
+      <kanji-box [hiragana]="'全'" [meaning]="'All'">{{ "全" }}</kanji-box>
+    </div>
+  </div>
+  <div class="bg-gray-50 p-4 rounded-lg shadow-md space-y-4 my-4">
+    <ct size="ft">Ditemukan Dalam Kosakata</ct>
+
+    <div class="my-3">
+      <divider />
+    </div>
+
+    <div class="flex flex-col gap-y-3">
+      <vocab-box [hiragana]="'全'" [meaning]="'All'">{{ "全" }}</vocab-box>
+    </div>
+  </div>
+</div>

@@ -1,21 +1,27 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'ct',
   imports: [CommonModule],
-  template: `<div [ngClass]="classes">
-    <ng-content></ng-content>
-  </div>`,
+  template: ` <ng-content></ng-content> `,
   styleUrl: './custom-typography.component.css',
 })
 export class CustomTypographyComponent implements OnInit {
+  /// Typography Sets
+  // h = 'Header'
+  // t = 'Title'
+  // k = 'Kanji'
+  // ft = 'Form Title'
+  // ch = 'Content Header'
+  // n = 'Name'
+  // nt = 'Note'
   @Input({ alias: 'level' }) levelText: number = 0;
-  @Input() size: '' | 'header' | 'content' | 'sub-header' | 'content-header' =
-    '';
+  @Input() size: '' | 'h' | 't' | 'k' | 'ft' | 'ch' | 'n' | 'nt' = '';
   @Input() color: 'primary' | 'secondary' | 'gray' | 'white' = 'gray';
+  @Input() class = '';
 
-  classes: string = '';
+  @HostBinding('class') classes: string = '';
 
   ngOnInit(): void {
     this.updateClasses();
@@ -24,20 +30,30 @@ export class CustomTypographyComponent implements OnInit {
   private updateClasses() {
     let sizeClass = '';
     switch (this.size) {
-      case 'header':
-        sizeClass = 'text-2xl font-bold md:text-3xl lg:text-4xl';
+      case 'h':
+        sizeClass = 'text-4xl font-bold';
         break;
-      case 'sub-header':
-        sizeClass = 'text-xl font-semibold md:text-2xl';
+      case 't':
+        sizeClass = 'text-3xl font-semibold';
         break;
-      case 'content-header':
-        sizeClass = 'text-lg font-semibold md:text-lg';
+      case 'n':
+        sizeClass = 'text-2xl font-semibold';
         break;
-      case 'content':
-        sizeClass = 'text-base md:text-lg';
+      case 'ft':
+        sizeClass = 'text-xl font-semibold';
         break;
+      case 'ch':
+        sizeClass = 'text-lg font-semibold';
+        break;
+      case 'k':
+        sizeClass = 'text-9xl';
+        break;
+      case 'nt':
+        sizeClass = 'text-sm font-thin';
+        break;
+      case '':
       default:
-        sizeClass = 'text-sm md:text-md';
+        sizeClass = 'text-base';
         break;
     }
 
@@ -63,31 +79,8 @@ export class CustomTypographyComponent implements OnInit {
       }
     } else {
       colorClass = 'text-white';
-      // switch (this.levelText) {
-      //   case 1:
-      //     colorClass = 'text-sky-100';
-      //     break;
-      //   case 2:
-      //     colorClass = 'text-green-100';
-      //     break;
-      //   case 3:
-      //     colorClass = 'text-yellow-100';
-      //     break;
-      //   case 4:
-      //     colorClass = 'text-orange-100';
-      //     break;
-      //   case 5:
-      //     colorClass = 'text-rose-100';
-      //     break;
-      //   case 6:
-      //     colorClass = 'text-white';
-      //     break;
-
-      //   default:
-      //     break;
-      // }
     }
 
-    this.classes = `${sizeClass} ${colorClass}`;
+    this.classes = `${this.class} ${sizeClass} ${colorClass}`;
   }
 }

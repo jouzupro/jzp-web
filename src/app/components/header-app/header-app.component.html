@@ -1,6 +1,6 @@
 <mat-toolbar class="sticky top-0 z-50">
   <div class="w-full flex flex-row items-center justify-between">
-    <span (click)="onDashboard()">JZP Beta</span>
+    <span (click)="goTo('dashboard')">JZP Beta</span>
     <button
       mat-icon-button
       [matMenuTriggerFor]="menu"
@@ -10,23 +10,12 @@
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="onLearn()">
-        <span>Learn</span>
-      </button>
-      <button mat-menu-item disabled>
-        <span>Review</span>
-      </button>
-      <button mat-menu-item (click)="onProfile()">
-        <span>Profile</span>
-      </button>
-      <button mat-menu-item>
-        <span>Practice</span>
-      </button>
-      <button mat-menu-item>
-        <span>Support</span>
-      </button>
-      <button mat-menu-item>
-        <span>Logout</span>
+      <button
+        *ngFor="let menu of listMenu"
+        mat-menu-item
+        (click)="goTo(menu.url)"
+      >
+        <span>{{ menu.label }}</span>
       </button>
     </mat-menu>
   </div>
