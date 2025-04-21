@@ -6,7 +6,7 @@ import { Component, Input, HostBinding } from '@angular/core';
   imports: [CommonModule],
   template: `
     <div
-      class="rounded-md p-4 flex flex-col items-center relative"
+      class="rounded-md p-4 flex flex-col items-center relative w-24"
       [class.bg-gray-400]="type === 'locked'"
       [class.bg-green-500]="type === '' || type === 'learned'"
       [class.bg-blue-500]="type === 'unlearned' || type === 'unlocked'"
@@ -41,10 +41,16 @@ import { Component, Input, HostBinding } from '@angular/core';
         <ng-content></ng-content>
       </div>
       <div *ngIf="!isMinimize" class="text-center">
-        <div *ngIf="hiragana != ''" class="text-sm text-white">
+        <div
+          *ngIf="hiragana != ''"
+          class="text-sm text-white overflow-hidden text-ellipsis whitespace-nowrap"
+        >
           {{ hiragana }}
         </div>
-        <div *ngIf="meaning != ''" class="text-sm text-white">
+        <div
+          *ngIf="meaning != ''"
+          class="text-sm text-white overflow-hidden text-ellipsis whitespace-nowrap"
+        >
           {{ meaning }}
         </div>
       </div>

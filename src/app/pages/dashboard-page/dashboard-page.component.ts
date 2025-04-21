@@ -7,8 +7,8 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../../components/button/button.component';
 import { StatusBoxComponent } from '../../components/status-box/status-box.component';
-import { Router, RouterModule } from '@angular/router';
-
+import { Router } from '@angular/router';
+import dummy from '../../../assets/json/dummies.json';
 @Component({
   selector: 'app-dashboard-page',
   imports: [
@@ -25,57 +25,15 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class DashboardPageComponent implements OnInit {
   isMobile: boolean = false;
-  lessonsAvailable: number = 5;
-  listKanji = [
-    {
-      char: '川',
-      hiragana: 'かわ',
-      meaning: 'Sungai',
-      type: 'learned',
-    },
-    {
-      char: '山',
-      hiragana: 'やま',
-      meaning: 'Gunung',
-      type: 'learned',
-    },
-    {
-      char: '木',
-      hiragana: 'き',
-      meaning: 'Pohon',
-      type: 'unlearned',
-    },
-    {
-      char: '火',
-      hiragana: 'ひ',
-      meaning: 'Api',
-      type: 'unlocked',
-    },
-    {
-      char: '水',
-      hiragana: 'みず',
-      meaning: 'Air',
-      type: 'locked',
-    },
-  ];
-  historyList = [
-    {
-      date: 'Today',
-      reviews: [{ date: '9pm', total: 24 }],
-      learned: [
-        { date: '8pm', total: 3 },
-        { date: '10pm', total: 5 },
-      ],
-    },
-    {
-      date: 'Yesterday',
-      reviews: [],
-      learned: [
-        { date: '8pm', total: 3 },
-        { date: '10pm', total: 5 },
-      ],
-    },
-  ];
+  data = dummy[0];
+
+  listKanji = this.data.dashboard.progressKanji;
+  historyList = this.data.dashboard.historyList;
+  statusList = this.data.dashboard.userStatus;
+  lessonsAvailable = this.data.dashboard.totalLearnAvailable;
+  reviewsAvailable = this.data.dashboard.totalReviewAvailable;
+  progressDone = this.data.dashboard.progress.totalItemDone;
+  totalProgress = this.data.dashboard.progress.totalItem;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -95,6 +53,6 @@ export class DashboardPageComponent implements OnInit {
     this.router.navigate(['play']);
   }
   getDetail(res: any) {
-    this.router.navigate(['kanji-detail'], { queryParams: { id: res.id } });
+    this.router.navigate(['kanji-detail'], { queryParams: { id: '争' } });
   }
 }

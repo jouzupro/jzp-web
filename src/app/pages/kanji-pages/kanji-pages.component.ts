@@ -146,6 +146,6 @@ export class KanjiPagesComponent {
   }
 
   getDetail(res: any) {
-    this.router.navigate(['kanji-detail'], { queryParams: { id: res.id } });
+    this.router.navigate(['kanji-detail'], { queryParams: { id: res } });
   }
 }

@@ -1,110 +1,72 @@
-import { Component, OnInit, ChangeDetectorRef, NgZone } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { CustomTypographyComponent } from '../../components/custom-typography/custom-typography.component';
-import { DividerComponent } from '../../components/divider/divider.component';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
-import { KanjiBoxComponent } from '../../components/kanji-box/kanji-box.component';
-import { VocabBoxComponent } from '../../components/vocab-box/vocab-box.component';
+import {
+  IBaseKanji,
+  IBaseRadical,
+  IBaseVocabulary,
+} from '../../constant/types';
+import dummy from '../../../assets/json/dummies.json';
+import { KanjiDetailComponent } from './kanji-detail/kanji-detail.component';
+import { RadicalDetailComponent } from './radical-detail/radical-detail.component';
+import { VocabDetailComponent } from './vocab-detail/vocab-detail.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-kanji-detail-page',
   imports: [
-    CustomTypographyComponent,
-    DividerComponent,
     MatIconModule,
     CommonModule,
-    KanjiBoxComponent,
-    VocabBoxComponent,
+    KanjiDetailComponent,
+    RadicalDetailComponent,
+    VocabDetailComponent,
+    MatProgressSpinnerModule,
   ],
   templateUrl: './kanji-detail-page.component.html',
   styleUrl: './kanji-detail-page.component.css',
 })
 export class KanjiDetailPageComponent implements OnInit {
   id = '';
-  speechSynthesis!: globalThis.SpeechSynthesis;
-  voices: SpeechSynthesisVoice[] = [];
-  voicesLoaded: boolean = false;
-  isSpeaking: boolean = false;
-  kanjiData = {
-    reading: 'きん',
-    char: '金',
-    meaning: ['Uang', 'Emas', 'Metal'],
-    onyomi: ['キン', 'コン', 'ゴン'],
-    kunyomi: ['かね', 'かな-', '-がね'],
-    radicalCombination: [
-      {
-        char: '金',
-        meaning: 'Gold',
-      },
-    ],
-    visuallySimilar: [
-      {
-        char: '企',
-        hiragana: 'き',
-        meaning: 'Plan',
-      },
-      {
-        char: '全',
-        hiragana: 'ぜん',
-        meaning: 'All',
-      },
-    ],
-    foundInVocab: [
-      {
-        char: '代金',
-        hiragana: 'だいきん',
-        meaning: 'Cost',
-      },
-    ],
-  };
 
-  constructor(private actRoute: ActivatedRoute, private ngZone: NgZone) {}
+  base: any | undefined;
+  kanji: IBaseKanji | undefined;
+  radical: IBaseRadical | undefined;
+  vocabulary: IBaseVocabulary | undefined;
 
-  ngOnInit(): void {
-    this.id = this.actRoute.snapshot.queryParams['id'];
-    console.log(this.actRoute.snapshot.queryParams['id']);
-
-    if ('speechSynthesis' in window) {
-      this.speechSynthesis = window.speechSynthesis;
-
-      this.speechSynthesis.onvoiceschanged = () => {
-        this.voices = this.speechSynthesis.getVoices();
-        this.voicesLoaded = true;
-        // console.log('Voices loaded:', this.voices);
-      };
-
-      this.voices = this.speechSynthesis.getVoices();
-      this.voicesLoaded = this.voices.length > 0;
-
-      if (!this.voicesLoaded) {
-        console.warn(
-          'Voices not immediately available, waiting for voiceschanged event.'
-        );
-      }
-    }
+  constructor(
+    private actRoute: ActivatedRoute,
+    private router: Router,
+    private viewportScroller: ViewportScroller
+  ) {
+    this.getDetail = this.getDetail.bind(this);
   }
 
-  onListen() {
-    if (this.voicesLoaded) {
-      const message = 'ありがとうございます';
-      let utterance = new SpeechSynthesisUtterance(message);
-      const voice = this.voices.find((voice) => voice.lang === 'ja-JP');
-      utterance.voice = voice ? voice : null;
-      utterance.pitch = 1.5;
-      utterance.rate = 0.5;
-      utterance.volume = 1;
-      this.isSpeaking = true;
+  ngOnInit(): void {
+    this.actRoute.queryParams.subscribe(params => {
+      this.kanji = undefined;
+      this.radical = undefined;
+      this.vocabulary = undefined;
 
-      utterance.onend = () => {
-        this.ngZone.run(() => {
-          this.isSpeaking = false;
-        });
-      };
+      this.id = params['id'];
+      console.log(this.id);
+      this.base = dummy[0].materials;
+      if (this.id === '亅') {
+        this.radical = this.base.radical[0];
+      } else if (this.id === '争') {
+        this.kanji = this.base.kanji[0];
+      } else if (this.id === '競争') {
+        this.vocabulary = this.base.vocabulary[0];
+      }
+      this.viewportScroller.scrollToPosition([0, 0]); // Scroll to top
+    });
+  }
 
-      this.speechSynthesis.speak(utterance);
-    } else {
-      console.error('speech synth not supported or voices not loaded yet');
-    }
+  getDetail(res: any) {
+    console.log('triggered');
+    this.router.navigate(['kanji-detail'], {
+      queryParams: { id: res }
+    });
   }
 }

@@ -22,6 +22,14 @@ export class HiraganaToRomajiPipe implements PipeTransform {
 
     let romaji = '';
     for (let i = 0; i < value.length; i++) {
+      if (i + 1 < value.length) {
+        const combinedChar = value.substring(i, i + 2);
+        if (this.hiraganaMap[combinedChar]) {
+          romaji += this.hiraganaMap[combinedChar];
+          i++; // Skip the next character since it's part of the combined one
+          continue;
+        }
+      }
       const char = value[i];
       if (this.hiraganaMap[char]) {
         romaji += this.hiraganaMap[char];

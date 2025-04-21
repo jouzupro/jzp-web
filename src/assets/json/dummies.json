@@ -1,0 +1,429 @@
+[
+    {
+        "dashboard": {
+            "totalLearnAvailable": 5,
+            "totalReviewAvailable": 24,
+            "progress": {
+                "totalItem": 70,
+                "totalItemDone": 24
+            },
+            "progressKanji": [
+                {
+                    "char": "川",
+                    "hiragana": "かわ",
+                    "meaning": "Sungai",
+                    "type": "learned"
+                },
+                {
+                    "char": "川",
+                    "hiragana": "かわ",
+                    "meaning": "Sungai",
+                    "type": "unlearned"
+                },
+                {
+                    "char": "川",
+                    "hiragana": "かわ",
+                    "meaning": "Sungai",
+                    "type": "unlocked"
+                },
+                {
+                    "char": "川",
+                    "hiragana": "かわ",
+                    "meaning": "Sungai",
+                    "type": "locked"
+                }
+            ],
+            "userStatus": [
+                {
+                    "color": "bg-sky-500",
+                    "total": 28,
+                    "radical": 10,
+                    "kanji": 5,
+                    "vocabulary": 13,
+                    "label": "Dasar"
+                },
+                {
+                    "color": "bg-green-500",
+                    "total": 28,
+                    "radical": 10,
+                    "kanji": 5,
+                    "vocabulary": 13,
+                    "label": "Pemula"
+                },
+                {
+                    "color": "bg-yellow-500",
+                    "total": 28,
+                    "radical": 10,
+                    "kanji": 5,
+                    "vocabulary": 13,
+                    "label": "Pegiat"
+                },
+                {
+                    "color": "bg-orange-500",
+                    "total": 28,
+                    "radical": 10,
+                    "kanji": 5,
+                    "vocabulary": 13,
+                    "label": "Pembelajar"
+                },
+                {
+                    "color": "bg-rose-500",
+                    "total": 28,
+                    "radical": 10,
+                    "kanji": 5,
+                    "vocabulary": 13,
+                    "label": "Mahir"
+                },
+                {
+                    "color": "bg-purple-500",
+                    "total": 28,
+                    "radical": 10,
+                    "kanji": 5,
+                    "vocabulary": 13,
+                    "label": "Ahli"
+                },
+                {
+                    "color": "bg-gray-500",
+                    "total": 28,
+                    "radical": 10,
+                    "kanji": 5,
+                    "vocabulary": 13,
+                    "label": "Lanjutan"
+                }
+            ],
+            "historyList": [
+                {
+                    "date": "Today",
+                    "reviews": [
+                        {
+                            "date": "9pm",
+                            "total": 12
+                        }
+                    ],
+                    "learned": [
+                        {
+                            "date": "8pm",
+                            "total": 9
+                        },
+                        {
+                            "date": "9pm",
+                            "total": 24
+                        }
+                    ]
+                },
+                {
+                    "date": "Yesterday",
+                    "reviews": [
+                        {
+                            "date": "9pm",
+                            "total": 12
+                        }
+                    ],
+                    "learned": [
+                        {
+                            "date": "8pm",
+                            "total": 9
+                        },
+                        {
+                            "date": "9pm",
+                            "total": 24
+                        }
+                    ]
+                }
+            ]
+        },
+        "profile": {
+            "heatmapStats": [
+                {
+                    "date": "3 Dec 2024",
+                    "contribution": 3
+                },
+                {
+                    "date": "4 Dec 2024",
+                    "contribution": 5
+                },
+                {
+                    "date": "5 Dec 2024",
+                    "contribution": 10
+                }
+            ],
+            "name": "Abdul Udin",
+            "userStat": {
+                "level": 3,
+                "totalExp": 3234,
+                "daysStudied": 54,
+                "longestStreak": 100,
+                "totalLearned": 30,
+                "totalReviewed": 40,
+                "totalAccuracy": 54
+            },
+            "jlpt": {
+                "n1": "0/540",
+                "n2": "0/320",
+                "n3": "0/200",
+                "n4": "20/145",
+                "n5": "97/100"
+            },
+            "progressKanji": [
+                {
+                    "char": "川",
+                    "hiragana": "かわ",
+                    "meaning": "Sungai",
+                    "type": "learned",
+                    "status": 36
+                }
+            ],
+            "kanjiLocked": [
+                {
+                    "char": "川",
+                    "hiragana": "かわ",
+                    "meaning": "Sungai",
+                    "type": "locked",
+                    "status": 36
+                }
+            ],
+            "criticalKanji": [
+                {
+                    "char": "川",
+                    "hiragana": "かわ",
+                    "meaning": "Sungai",
+                    "type": "learned",
+                    "status": 36
+                }
+            ]
+        },
+        "list": {},
+        "materials": {
+            "radical": [
+                {
+                    "char": "亅",
+                    "hiragana": "",
+                    "meaning": "Barb",
+                    "type": "learned",
+                    "hint": "",
+                    "mnemonic": "This radical is shaped like a barb. Kind of like the barb you'd see on a barbed fishing hook. Imagine that thing getting stuck in your arm or something. Not exactly pleasant. Say out loud, 'Oh dang, I got a barb stuck in me!' Alright, relax, it's only a little barb.",
+                    "status": 90,
+                    "progression": "Pembelajar",
+                    "currStreak": 3,
+                    "bestStreak": 14,
+                    "nextReview": "2 Dec 2029",
+                    "unlockedDate": "2 Dec 2021",
+                    "totalWrong": 12,
+                    "totalCorrect": 70,
+                    "foundIn": [
+                        {
+                            "char": "才",
+                            "hiragana": "さい",
+                            "meaning": "Talent",
+                            "type": "learned"
+                        },
+                        {
+                            "char": "了",
+                            "hiragana": "りょう",
+                            "meaning": "Finish",
+                            "type": "locked"
+                        },
+                        {
+                            "char": "争",
+                            "hiragana": "そう",
+                            "meaning": "Conflict",
+                            "type": "locked"
+                        },
+                        {
+                            "char": "慶",
+                            "hiragana": "けい",
+                            "meaning": "Congratulate",
+                            "type": "locked"
+                        }
+                    ]
+                }
+            ],
+            "kanji": [
+                {
+                    "char": "争",
+                    "hiragana": "そう",
+                    "reading": {
+                        "kunyomi": [
+                            "あらそ"
+                        ],
+                        "onyomi": [
+                            "そう"
+                        ]
+                    },
+                    "meaning": "Conflict",
+                    "alternativeMeaning": [],
+                    "type": "learned",
+                    "status": 89,
+                    "meaningData": {
+                        "mnemonic": "If you keep a wolverine in a prison with barbs, you're likely to get into a conflict with animal rights groups. Wolverines aren't meant to be kept in cages, let alone barbed prisons. There's going to be some sort of conflict here, and animal activist groups are not going to be happy with you.",
+                        "hint": "Imagine you're the wolverine in this barbed prison. There's hardly enough room for you to even turn around in here. The barbs keep poking you as well. Have you ever run into a barbed wire fence? It's not pleasant."
+                    },
+                    "readingData": {
+                        "mnemonic": "When the wolverine cuts itself inside the barbed prison (which is inevitable), the conflict changes. Now there is a conflict between the wolverine and its soul (そう). Does it lose it and become a shell of its former self? Or does it keep fighting and try to hang onto what's left of its soul?",
+                        "hint": "Pretend you're the wolverine once again. You're already in pain from gouging yourself in this barbed prison. But now you can feel a conflict within yourself. Your soul can't take this. You have to hold on, but it's so hard to keep fighting."
+                    },
+                    "progression": "Pembelajar",
+                    "currStreak": 3,
+                    "bestStreak": 14,
+                    "nextReview": "2 Dec 2029",
+                    "unlockedDate": "2 Dec 2021",
+                    "totalWrong": 12,
+                    "totalCorrect": 70,
+                    "similarKanji": [
+                        {
+                            "char": "浄",
+                            "hiragana": "じょう",
+                            "meaning": "Cleanse",
+                            "type": "learned"
+                        }
+                    ],
+                    "radicalCombination": [
+                        {
+                            "char": "勹",
+                            "meaning": "Prison",
+                            "type": "learned"
+                        },
+                        {
+                            "char": "ヨ",
+                            "meaning": "Wolverine",
+                            "type": "locked"
+                        },
+                        {
+                            "char": "亅",
+                            "meaning": "Barbs",
+                            "type": "learned"
+                        }
+                    ],
+                    "keyRadical": [
+                        "Prison",
+                        "Barbs",
+                        "Wolverine"
+                    ],
+                    "keyKanji": [
+                        "Conflict"
+                    ],
+                    "keyReading": [
+                        "sou"
+                    ],
+                    "foundInVocab": [
+                        {
+                            "char": "競争",
+                            "hiragana": "きょうそう",
+                            "meaning": "Competition",
+                            "type": "locked"
+                        },
+                        {
+                            "char": "争う",
+                            "hiragana": "あらそう",
+                            "meaning": "To Compete",
+                            "type": "locked"
+                        },
+                        {
+                            "char": "戦争",
+                            "hiragana": "せんそう",
+                            "meaning": "War",
+                            "type": "locked"
+                        }
+                    ]
+                }
+            ],
+            "vocabulary": [
+                {
+                    "char": "競争",
+                    "hiragana": "きょうそう",
+                    "meaning": "Competition",
+                    "type": "locked",
+                    "status": 89,
+                    "progression": "Pembelajar",
+                    "currStreak": 3,
+                    "bestStreak": 14,
+                    "nextReview": "2 Dec 2029",
+                    "unlockedDate": "2 Dec 2021",
+                    "totalWrong": 12,
+                    "totalCorrect": 70,
+                    "wordType": [
+                        "noun",
+                        "verbal noun",
+                        "の adjective"
+                    ],
+                    "keyKanji": [
+                        "Conflict",
+                        "Compete"
+                    ],
+                    "meaningData": {
+                        "mnemonic": "When you compete to the point of conflict, you know that this person / entity is your competition. Gotta beat out that competition. For example, in order to beat out the competition, WaniKani has a mascot that can eat every other small furry animal that the competition has for their mascot. Case closed.",
+                        "hint": ""
+                    },
+                    "readingData": {
+                        "mnemonic": "This is a jukugo word, which usually means on'yomi readings from the kanji. If you know the readings of your kanji you'll know how to read this as well.",
+                        "hint": ""
+                    },
+                    "kanjiComposition": [
+                        {
+                            "char": "競",
+                            "hiragana": "きょう",
+                            "meaning": "Compete",
+                            "type": "locked"
+                        },
+                        {
+                            "char": "争",
+                            "hiragana": "そう",
+                            "meaning": "Conflict",
+                            "type": "locked"
+                        }
+                    ],
+                    "pattern": [
+                        {
+                            "word": "競争を〜",
+                            "examples": [
+                                {
+                                    "word": "競争をする",
+                                    "meaning": "to do a competition"
+                                },
+                                {
+                                    "word": "競争を生む",
+                                    "meaning": "to generate competition"
+                                },
+                                {
+                                    "word": "競争を行う",
+                                    "meaning": "to carry out a competition"
+                                }
+                            ]
+                        },
+                        {
+                            "word": "競争に〜",
+                            "examples": [
+                                {
+                                    "word": "競争に勝つ",
+                                    "meaning": "to win in a competition"
+                                },
+                                {
+                                    "word": "競争に負ける",
+                                    "meaning": "to lose in a competition"
+                                },
+                                {
+                                    "word": "競争になる",
+                                    "meaning": "to become a competition"
+                                }
+                            ]
+                        }
+                    ],
+                    "sentence": [
+                        {
+                            "word": "今は競争する気分じゃないんだけど。",
+                            "meaning": "I'm really not in the mood for a competition right now."
+                        },
+                        {
+                            "word": "今日の朝ごはんは、昨日のパン食い競争のパンです。",
+                            "meaning": "Today's breakfast is bread from yesterday's bread eating competition."
+                        },
+                        {
+                            "word": "あいつら、もうちょっと落ち着いた方がいいよ。二人共負けず嫌いのくせに、いっつも二人で競争してるんだぜ。",
+                            "meaning": "These guys really need to chill out. They're always competing with each other and they both hate losing."
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+]

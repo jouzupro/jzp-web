@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import dayjs from 'dayjs';
 import { FormsModule } from '@angular/forms';
@@ -77,24 +77,7 @@ interface ContributionData {
   styleUrl: './heatmap.component.css',
 })
 export class HeatmapMonthComponent implements OnInit {
-  data: ContributionData[] = [
-    {
-      date: '3 Dec 2024',
-      contribution: 10,
-    },
-    {
-      date: '10 Apr 2025',
-      contribution: 35,
-    },
-    {
-      date: '4 Jan 2024',
-      contribution: 10,
-    },
-    {
-      date: '10 Jan 2024',
-      contribution: 10,
-    },
-  ];
+  @Input() data: ContributionData[] = []
   currentDate = dayjs();
   monthName = this.currentDate.format('MMMM YYYY');
   daysInMonth: number[] = [];

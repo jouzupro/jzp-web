@@ -16,7 +16,7 @@
       <ct size="ch" color="white">Reviews Available</ct>
       <div class="my-5">
         <ct size="" color="white" class="leading-none"
-          >There are {{ lessonsAvailable }} Reviews Available, Start Reviewing
+          >There are {{ reviewsAvailable }} Reviews Available, Start Reviewing
           now to progress</ct
         >
       </div>
@@ -29,11 +29,11 @@
   <div class="flex items-center w-full mb-5">
     <div class="w-full h-6 bg-gray-200 rounded-md overflow-hidden relative">
       <ct class="absolute right-2 top-1/2 transform -translate-y-1/2 text-sm">
-        23/70
+        {{ progressDone }}/{{ totalProgress }}
       </ct>
       <div
         class="h-full bg-blue-500 transition-width duration-300 ease-in-out"
-        [style.width.%]="30"
+        [style.width.%]="(progressDone / totalProgress) * 100"
         id="progress-bar"
       ></div>
     </div>
@@ -54,13 +54,15 @@
       </div>
       <ct size="ch">Status</ct>
       <div class="flex flex-wrap gap-4 my-3">
-        <status-box level="1" total="13" />
-        <status-box level="2" total="24" />
-        <status-box level="3" total="5" />
-        <status-box level="4" total="0" />
-        <status-box level="5" total="0" />
-        <status-box level="6" total="0" />
-        <status-box level="7" total="0" />
+        <status-box
+          *ngFor="let status of statusList"
+          [labelStatus]="status.label"
+          [totalItem]="status.total"
+          [kanji]="status.kanji"
+          [vocab]="status.vocabulary"
+          [radical]="status.radical"
+          [colorContainer]="status.color"
+        />
       </div>
     </div>
   </div>
