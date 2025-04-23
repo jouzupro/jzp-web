@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -15,12 +15,12 @@ import { CommonModule } from '@angular/common';
     MatIconModule,
     RouterModule,
     MatMenuModule,
-    CommonModule
+    CommonModule,
   ],
   templateUrl: './header-app.component.html',
   styleUrl: './header-app.component.css',
 })
-export class HeaderAppComponent {
+export class HeaderAppComponent implements OnInit {
   listMenu = [
     {
       label: 'Learn',
@@ -48,7 +48,16 @@ export class HeaderAppComponent {
     },
   ];
 
+  showHeader = true;
+
   constructor(private router: Router) {}
+
+  ngOnInit() {
+    this.router.events.subscribe(() => {
+      this.showHeader =
+        this.router.url !== '/login' && this.router.url !== '/register';
+    });
+  }
 
   goTo(url: string) {
     this.router.navigate([url]);

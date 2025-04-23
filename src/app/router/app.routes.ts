@@ -8,6 +8,7 @@ import { LessonPreviewComponent } from '../pages/lesson-preview/lesson-preview.c
 import { ProfileComponent } from '../pages/profile/profile.component';
 import { KanjiPagesComponent } from '../pages/kanji-pages/kanji-pages.component';
 import { KanjiDetailPageComponent } from '../pages/kanji-detail-page/kanji-detail-page.component';
+import { PracticeSettingComponent } from '../pages/practice-setting/practice-setting.component';
 
 export const routes: Routes = [
   {
@@ -44,6 +45,12 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
     title: 'Detail',
     component: KanjiDetailPageComponent,
+  },
+  {
+    path: 'start-practice',
+    canActivate: [AuthGuard],
+    title: 'Practice',
+    component: PracticeSettingComponent,
   },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },

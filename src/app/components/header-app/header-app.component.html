@@ -1,4 +1,4 @@
-<mat-toolbar class="sticky top-0 z-50">
+<mat-toolbar *ngIf="showHeader" class="sticky top-0 z-50">
   <div class="w-full flex flex-row items-center justify-between">
     <span (click)="goTo('dashboard')">JZP Beta</span>
     <button

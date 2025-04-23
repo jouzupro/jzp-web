@@ -8,6 +8,7 @@ import { IBaseKanji } from '../../../constant/types';
 import { VocabBoxComponent } from '../../../components/vocab-box/vocab-box.component';
 import { HiraganaToRomajiPipe } from '../../../pipes/hiragana-to-romaji/hiragana-to-romaji.pipe';
 import { MnemonicWrapperComponent } from '../../../components/mnemonic-wrapper/mnemonic-wrapper.component';
+import { FooterKanjiComponent } from '../footer-kanji/footer-kanji.component';
 
 @Component({
   selector: 'kj-detail',
@@ -20,6 +21,7 @@ import { MnemonicWrapperComponent } from '../../../components/mnemonic-wrapper/m
     VocabBoxComponent,
     HiraganaToRomajiPipe,
     MnemonicWrapperComponent,
+    FooterKanjiComponent,
   ],
   template: `<div class="flex justify-center">
       <div class="border rounded-md p-4 w-fit">
@@ -226,7 +228,8 @@ import { MnemonicWrapperComponent } from '../../../components/mnemonic-wrapper/m
           >{{ v.char }}</vocab-box
         >
       </div>
-    </div>`,
+    </div>
+    <fk></fk>`,
 })
 export class KanjiDetailComponent implements OnInit {
   @Input()

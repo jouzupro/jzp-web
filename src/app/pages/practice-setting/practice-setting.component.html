@@ -1,0 +1,149 @@
+<div class="bg-gray-50 p-4 rounded-lg shadow-md space-y-4 m-4">
+  <h2 class="text-xl font-semibold mb-4">Review Card Filter</h2>
+
+  <div class="bg-gray-50 p-4 rounded-lg shadow-md space-y-4 my-4">
+    <h3 class="text-lg font-medium mb-2">Range Level</h3>
+    <div class="flex items-center space-x-2">
+      <div>
+        <input
+          class="w-full h-[45px] border rounded-md px-3"
+          placeholder="From"
+        />
+      </div>
+      <div>To</div>
+      <div>
+        <input
+          class="w-full h-[45px] border rounded-md px-3"
+          placeholder="To"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-gray-50 p-4 rounded-lg shadow-md space-y-4 my-4">
+    <h3 class="text-lg font-medium mb-2">Range Frequency</h3>
+    <div class="flex items-center space-x-2">
+      <div>
+        <input
+          class="w-full h-[45px] border rounded-md px-3"
+          placeholder="From"
+        />
+      </div>
+      <div>To</div>
+      <div>
+        <input
+          class="w-full h-[45px] border rounded-md px-3"
+          placeholder="To"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-gray-50 p-4 rounded-lg shadow-md space-y-4 my-4">
+    <div class="flex items-center justify-between">
+      <label class="text-lg font-medium">Only Leeches</label>
+      <mat-slide-toggle></mat-slide-toggle>
+    </div>
+  </div>
+
+  <div class="bg-gray-50 p-4 rounded-lg shadow-md space-y-4 my-4">
+    <h3 class="text-lg font-medium mb-2">Next Review in</h3>
+    <div class="flex items-center space-x-2">
+      <label>More than</label>
+
+      <div>
+        <input
+          class="w-full h-[45px] border rounded-md px-3"
+          placeholder="From"
+        />
+      </div>
+      <div>
+        Hours Ago
+      </div>
+    </div>
+    <div class="flex items-center space-x-2">
+      <label>Less than</label>
+
+      <div>
+        <input
+          class="w-full h-[45px] border rounded-md px-3"
+          placeholder="From"
+        />
+      </div>
+      <div>
+        Hours Ago
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-gray-50 p-4 rounded-lg shadow-md space-y-4 my-4">
+    <h3 class="text-lg font-medium mb-2">Incorrect answer</h3>
+    <div class="flex items-center space-x-2">
+      <div>less than</div>
+      <div>
+        <input
+          class="w-full h-[45px] border rounded-md px-3"
+          placeholder="From"
+        />
+      </div>
+      <div>
+        Hours Ago
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-gray-50 p-4 rounded-lg shadow-md space-y-4 my-4">
+    <h3 class="text-lg font-medium mb-2">Burned In</h3>
+    <div class="flex items-center space-x-2">
+      <label>More than</label>
+
+      <div>
+        <input
+          class="w-full h-[45px] border rounded-md px-3"
+          placeholder="From"
+        />
+      </div>
+      <div>
+        Days Ago
+      </div>
+    </div>
+    <div class="flex items-center space-x-2">
+      <label>Less than</label>
+
+      <div>
+        <input
+          class="w-full h-[45px] border rounded-md px-3"
+          placeholder="From"
+        />
+      </div>
+      <div>
+        Days Ago
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-gray-50 p-4 rounded-lg shadow-md space-y-4 my-4">
+    <h3 class="text-lg font-medium mb-2">Srs status</h3>
+    <mat-checkbox>Apprentice</mat-checkbox><br />
+    <mat-checkbox>Master</mat-checkbox><br />
+    <mat-checkbox>Burned</mat-checkbox>
+  </div>
+
+  <div class="bg-gray-50 p-4 rounded-lg shadow-md space-y-4 my-4">
+    <h3 class="text-lg font-medium mb-2">Subject Type</h3>
+    <mat-checkbox>Radicals</mat-checkbox><br />
+    <mat-checkbox>Kanji</mat-checkbox><br />
+    <mat-checkbox>Vocabulary</mat-checkbox>
+  </div>
+
+  <div class="bg-gray-50 p-4 rounded-lg shadow-md space-y-4 my-4">
+    <h3 class="text-lg font-medium mb-2">Jlpt Level</h3>
+    <mat-checkbox>N5</mat-checkbox><br />
+    <mat-checkbox>4</mat-checkbox><br />
+    <mat-checkbox>3</mat-checkbox>
+  </div>
+</div>
+<div class="h-[60px]"></div>
+<div class="fixed bottom-0 z-10 p-4 bg-white shadow w-full">
+  <btn full (click)="startPractite()">Start Practice</btn>
+</div>

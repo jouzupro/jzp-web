@@ -16,6 +16,7 @@ import { HiraganaToRomajiPipe } from '../../../pipes/hiragana-to-romaji/hiragana
 import { MatExpansionModule } from '@angular/material/expansion';
 import { KanjiBoxComponent } from '../../../components/kanji-box/kanji-box.component';
 import { Route } from '@angular/router';
+import { FooterKanjiComponent } from '../footer-kanji/footer-kanji.component';
 
 @Component({
   selector: 'vc-detail',
@@ -28,6 +29,7 @@ import { Route } from '@angular/router';
     HiraganaToRomajiPipe,
     MatExpansionModule,
     KanjiBoxComponent,
+    FooterKanjiComponent,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `<div class="flex justify-center">
@@ -226,7 +228,8 @@ import { Route } from '@angular/router';
           >{{ k.char }}</kanji-box
         >
       </div>
-    </div> `,
+    </div>
+    <fk></fk>`,
 })
 export class VocabDetailComponent {
   readonly panelOpenState = signal(false);

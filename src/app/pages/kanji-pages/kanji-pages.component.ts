@@ -12,7 +12,6 @@ import { DialogWrapperComponent } from '../../components/dialog-wrapper/dialog-w
 import { VocabBoxComponent } from '../../components/vocab-box/vocab-box.component';
 import { IFilterKanji } from '../../constant/types';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-kanji-pages',
   imports: [
@@ -140,9 +139,10 @@ export class KanjiPagesComponent {
     dialogRef.afterClosed().subscribe((result: IFilterKanji) => {
       this.payload = result;
       console.log(result);
-
-      console.log(this.payload);
     });
+  }
+  openPractice() {
+    this.router.navigate(['start-practice']);
   }
 
   getDetail(res: any) {

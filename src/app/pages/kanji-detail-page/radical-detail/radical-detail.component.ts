@@ -6,6 +6,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { KanjiBoxComponent } from '../../../components/kanji-box/kanji-box.component';
 import { IBaseRadical } from '../../../constant/types';
 import { MnemonicWrapperComponent } from '../../../components/mnemonic-wrapper/mnemonic-wrapper.component';
+import { FooterKanjiComponent } from "../footer-kanji/footer-kanji.component";
 
 @Component({
   selector: 'rd-detail',
@@ -16,7 +17,8 @@ import { MnemonicWrapperComponent } from '../../../components/mnemonic-wrapper/m
     MatIconModule,
     KanjiBoxComponent,
     MnemonicWrapperComponent,
-  ],
+    FooterKanjiComponent
+],
   template: `<div class="flex justify-center">
       <div class="border rounded-md p-4 w-fit">
         <ct size="k">{{ data.char }}</ct>
@@ -73,7 +75,8 @@ import { MnemonicWrapperComponent } from '../../../components/mnemonic-wrapper/m
           >{{ k.char }}</kanji-box
         >
       </div>
-    </div>`,
+    </div>
+    <fk></fk>`,
 })
 export class RadicalDetailComponent {
   @Input()

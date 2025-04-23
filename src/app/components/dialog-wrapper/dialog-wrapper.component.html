@@ -1,6 +1,9 @@
 <h2 mat-dialog-title>Filter</h2>
 <mat-dialog-content class="mat-typography">
   <div class="w-full">
+    <ct>Keyword</ct>
+    <input class="w-full h-[45px] border rounded-md px-3 my-2" />
+
     <ct>Filter By</ct>
     <mat-radio-group
       aria-labelledby="example-radio-group-label"
@@ -22,7 +25,7 @@
     </div>
 
     <ct
-      >{{ payload.selectedFilterBy| classNameToText }}
+      >{{ payload.selectedFilterBy | classNameToText }}
       <span *ngIf="payload.selectedFilterBy != 'level'"> Level</span>
     </ct>
 
